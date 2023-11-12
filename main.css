@@ -1,0 +1,90 @@
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+}
+
+/* Reset default styles for heading tags */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+
+    margin-top: 0;
+    /* Remove top margin */
+    margin-bottom: 0;
+    /* Add a small bottom margin for spacing */
+    font-weight: normal;
+    /* Reset font weight */
+
+}
+
+/* Remove default button styling */
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    background: none;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* reset of default span styling */
+span {
+    margin: 0;
+    padding: 0;
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+    font-family: inherit;
+    text-transform: none;
+    display: inline;
+}
+
+
+
+/* reset of default body styling */
+body{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    border: none;
+}
+
+
+
+:root{
+    --primary-text-color: #ffffff;
+    --primary-font: futura , sans-serif;
+
+}
+
+
+
+
+
+
+
+.logo{
+    margin: 2rem;
+    position: fixed;
+    text-transform: uppercase;
+    font-family: var(--primary-font);
+    font-weight: 800;
+    font-size: 3.5rem;
+    line-height: 3rem;
+}
