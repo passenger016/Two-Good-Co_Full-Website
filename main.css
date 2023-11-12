@@ -1,10 +1,15 @@
 @font-face {
-    font-family: Futura;
+    font-family: Futura-Bold;
     src: url(/fonts/Futura-Bold.ttf);
 }
 @font-face {
     font-family: HelveticaNow;
     src: url(/fonts/HelveticaNowText-Regular\ \(1\).ttf);
+}
+
+@font-face {
+    font-family: Futura-Medium;
+    src: url(/fonts/FuturaLTProMedium.otf);
 }
 
 
@@ -85,8 +90,9 @@ body{
 
 :root{
     --primary-text-color: #ffffff;
-    --primary-font-family: futura , sans-serif;
+    --primary-font-family: Futura-Bold , sans-serif;
     --secondary-font-family: HelveticaNow;
+    --tertiary-font-family: Futura-Medium;
 
 }
 
@@ -103,15 +109,27 @@ body{
     left: 0;
     right: 0;
     background-color: black;
-
+    content: "";
     z-index: 1000;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    font-size: 8%;
+    font-family: var(--tertiary-font-family);
+    text-transform: uppercase;
 }
 
 body:hover > .cursor{
     opacity: 1;
 }
+
+/* .product{
+    content: "Click";
+} */
 
 
 .logo{
