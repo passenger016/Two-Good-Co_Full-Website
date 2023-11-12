@@ -94,6 +94,24 @@ body{
 
 
 
+.cursor{
+    width: 2rem;
+    height: 2rem;
+    position: fixed;
+    pointer-events: none;
+    border-radius: 50%;
+    left: 0;
+    right: 0;
+    background-color: black;
+
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+body:hover > .cursor{
+    opacity: 1;
+}
 
 
 .logo{
