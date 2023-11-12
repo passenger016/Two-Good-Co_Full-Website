@@ -25,6 +25,13 @@ html {
     box-sizing: inherit;
 }
 
+/* on selection of text the background color changes to black and the text color changes to white */
+*::selection{
+    color: #ffffff;
+    background-color: black;
+}
+
+
 /* Reset default styles for heading tags */
 
 h1,
@@ -193,6 +200,11 @@ body:hover > .cursor{
     font-weight: 800;
     line-height: 80%;
     letter-spacing: -1.2rem;
+}
+
+.first-section_heading-interior-container{
+    display: flex;
+    gap: 5rem;
 }
 
 
