@@ -2,8 +2,9 @@ const cursor = document.querySelector(".cursor");
 
 
 
-window.addEventListener("DOMContentLoaded",()=>{
-    firstHeadingAnimation()
+window.addEventListener("DOMContentLoaded", () => {
+    firstHeadingAnimation();
+    promotionAnimation();
 })
 
 
@@ -52,7 +53,7 @@ let animateTrailer = (e, interacting) => {
 
 }
 
-function firstHeadingAnimation(){
+function firstHeadingAnimation() {
     gsap.from(".first-section_heading", {
         y: 30, // starts from y:30 and ends at the current position
         opacity: 0, // it starts from opacity 0 and ends at 1(current opacity)
@@ -62,3 +63,12 @@ function firstHeadingAnimation(){
     });
 }
 
+function promotionAnimation() {
+    gsap.from(".first-section_promotion-container", {
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        delay:1.0,
+        scale:0.8
+    });
+}
