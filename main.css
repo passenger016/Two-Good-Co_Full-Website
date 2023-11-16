@@ -256,6 +256,7 @@ body:hover>.cursor {
     align-items: center;
     /* background-color: pink; */
     gap: 2rem;
+
     
 }
 
@@ -305,8 +306,10 @@ body:hover>.cursor {
     border-radius: 50px;
     width: 60%;
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
+    height: auto;
 }
 
 .second-section_category-box_first-text,.second-section_category-box_second-text{
@@ -319,6 +322,7 @@ body:hover>.cursor {
 .second-section_category-box_second-text{
     font-weight: bold;
 }
+
 
 
 @media (max-width:600px) {
