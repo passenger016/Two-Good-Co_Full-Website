@@ -72,3 +72,11 @@ function promotionAnimation() {
         scale:0.8
     });
 }
+
+
+
+// locomotive scroll
+const scroll = new LocomotiveScroll({
+    el: document.querySelector('.main'),
+    smooth: true
+});
