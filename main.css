@@ -17,6 +17,7 @@
 html {
     font-size: 62.5%;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 *,
@@ -255,10 +256,11 @@ body:hover > .cursor{
     width: 100%;
     background-size: cover;
     background-position: center center;
+    overflow: hidden;
 }
 
 
-#category_image1{
+/* #category_image1{
     background-image: url(/images/bc3f529e3f10086db91822f615caf549a260362d-1500x2250.jpeg);
 }
 
@@ -268,5 +270,16 @@ body:hover > .cursor{
 
 #category_image3{
     background-image: url(images/3rd.jpeg);
+} */
+
+#second-section_image1,#second-section_image2,#second-section_image3{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    scale: 1.2;
+    object-position: center center;
 }
 
+#second-section_image1{
+    scale: 1.5;
+}
