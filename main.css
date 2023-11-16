@@ -141,19 +141,24 @@ body:hover>.cursor {
     content: "Click";
 } */
 
+.logo-container{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    position: fixed;
+    top: 1.5rem;
+    left: 1.5rem;
+    z-index: 1000;
+    cursor: pointer;
+}
 
 .logo {
-    margin: 2rem;
-    position: fixed;
-    top: 0;
-    left: 0;
+    margin: 0.5rem;
     text-transform: uppercase;
     font-family: var(--primary-font-family);
     font-weight: 800;
-    font-size: 3.5rem;
-    line-height: 3rem;
-    z-index: 1000;
-    cursor: pointer;
+    font-size: 3.2rem;
+    line-height: 2.7rem;
 }
 
 .primary-navbar {
