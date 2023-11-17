@@ -4,7 +4,7 @@ const cursor = document.querySelector(".cursor");
 
 window.addEventListener("DOMContentLoaded", () => {
     firstHeadingAnimation();
-    promotionAnimation();
+    promotionAnimation();  
 })
 
 
@@ -83,3 +83,20 @@ window.onload = () => {
     });
     console.log('Initialization complete.');
 }
+
+// const script = document.createElement('script');
+// script.src = 'https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js';
+// document.head.appendChild(script);
+
+// script.onload = function() {
+//   const scroll = new LocomotiveScroll({
+//     el: document.querySelector('body'),
+//   });
+// };
+
+// console.log('Initializing Locomotive Scroll...');
+// const scroll = new LocomotiveScroll({
+//     el: document.querySelector('.main'),
+//     smooth: true
+// });
+// console.log('Initialization complete.');

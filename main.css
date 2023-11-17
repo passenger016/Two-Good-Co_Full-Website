@@ -340,7 +340,7 @@ body:hover>.cursor {
     justify-content: space-between;
     align-items: flex-start;
     padding-top: 4rem;
-    padding-bottom: 8rem;
+    padding-bottom: 4rem;
     background-color: white;
 }
 
@@ -369,6 +369,24 @@ body:hover>.cursor {
     margin-bottom: 3.2rem;
 }
 
+.third-section_bottom-container{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 2rem;
+    background-color: brown;
+}
+
+.product{
+    /* background-color: red; */
+    padding: 2rem;
+}
+
+.product_image{
+    height: auto;
+    width: 100%;
+    background-size: cover;
+}
 
 
 
