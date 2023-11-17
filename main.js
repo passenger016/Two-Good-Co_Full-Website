@@ -74,17 +74,6 @@ function promotionAnimation() {
     });
 }
 
-// window.addEventListener('DOMContentLoaded', () => {
-//     // locomotive scroll
-//     const scroll = new LocomotiveScroll({
-//         el: document.querySelector('.main'),
-//         smooth: true
-//     });
-
-//     scroll.on('scroll', function (obj) {
-//         console.log(obj.scroll.y);
-//     });
-// })
 
 window.onload = () => {
     console.log('Initializing Locomotive Scroll...');
