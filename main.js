@@ -53,6 +53,8 @@ let animateTrailer = (e, interacting) => {
 
 }
 
+gsap.registerPlugin(ScrollTrigger)
+
 function firstHeadingAnimation() {
     gsap.from(".first-section_heading", {
         y: 30, // starts from y:30 and ends at the current position
@@ -68,15 +70,16 @@ function promotionAnimation() {
         y: 30,
         opacity: 0,
         duration: 0.8,
-        delay:1.0,
-        scale:0.8
+        delay: 1.0,
+        scale: 0.8
     });
 }
 
-
-
-// locomotive scroll
+window.addEventListener('DOMContentLoaded',()=>{
+    // locomotive scroll
 const scroll = new LocomotiveScroll({
     el: document.querySelector('.main'),
     smooth: true
 });
+})
+
