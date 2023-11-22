@@ -56,12 +56,17 @@ let animateTrailer = (e, interacting) => {
 
 function firstHeadingAnimation() {
     gsap.from(".first-section_heading", {
-        y: 30, // starts from y:30 and ends at the current position
+        y: 400, // starts from y:30 and ends at the current position
         opacity: 0, // it starts from opacity 0 and ends at 1(current opacity)
-        duration: 0.8, // the total animation duration
+        duration: 0.6, // the total animation duration
         delay: 0.5, // before the start of the animation there will be a 0.5 second delay
         stagger: 0.2 // delay of 0.2s between each element under the animation
     });
+
+
+
+
+
 }
 
 function promotionAnimation() {
