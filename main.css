@@ -87,6 +87,18 @@ a {
     /* Use the color of the parent element */
 }
 
+/* remove default list styling */
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+li{
+    margin: 0;
+}
+
+
 
 /* reset of default body styling */
 body {
@@ -144,11 +156,11 @@ body:hover>.cursor {
 .logo-container {
     display: flex;
     flex-direction: column;
-    background-color: white;
+    /* background-color: white; */
     position: fixed;
     top: 1.5rem;
     left: 1.5rem;
-    z-index: 1000;
+    z-index: 900;
     cursor: pointer;
 }
 
@@ -168,6 +180,7 @@ body:hover>.cursor {
     justify-content: flex-end;
     gap: 8rem;
     align-items: center;
+    z-index: 100;
 
 }
 
@@ -189,8 +202,100 @@ body:hover>.cursor {
     justify-content: space-between;
     width: 12rem;
     border-radius: 40px;
-    z-index: 1000;
+    z-index: 100;
 }
+
+.secondary-navbar-expanded {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    /* background-color: #333; */
+    background-color: black;
+    overflow: hidden;
+    transition: height 0.3s ease-out;
+    z-index: 80;
+    padding: 2rem;
+
+}
+
+.secondary-navbar-expanded-content{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* background-color: purple; */
+}
+
+
+/* .secondary-navbar_primary-list-container{
+    background-color: brown;
+} */
+
+.secondary-navbar_primary-list{
+    list-style: none;
+    color: white;
+    z-index: 80;
+    width: auto;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-family: var(--primary-font-family);
+    text-transform: uppercase;
+    font-size: 5.6rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.primary-list_mask{
+    background-color: black;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.secondary-navbar_primary-list_item{
+    line-height: 1;
+}
+
+.secondary-navbar_secondary-list-container{
+    color: white;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    background-color: brown;
+    width: 38vw;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.secondary-navbar_secondary-list{
+    font-family: var(--secondary-font-family);
+    font-size: 1.4rem; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0.4rem;
+    text-transform: capitalize;
+}
+
+.secondary-list_mask{
+    /* background-color: black; */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+
+
+
+
 
 
 
