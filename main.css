@@ -18,7 +18,7 @@
 html {
     font-size: 62.5%;
     box-sizing: border-box;
-    /* scroll-behavior: smooth; */
+    scroll-behavior: smooth;
 }
 
 *,
@@ -176,6 +176,25 @@ body:hover>.cursor {
     font-size: 1.2rem;
     font-family: var(--secondary-font-family);
 }
+
+.secondary-navbar{
+    background-color: white;
+    position: fixed;
+    right: 1.5rem;
+    top: 0.7rem;
+    padding: 0.7rem 1.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 12rem;
+    border-radius: 40px;
+    z-index: 1000;
+}
+
+
+
+
 
 .first-section,
 .second-section,
