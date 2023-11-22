@@ -180,14 +180,14 @@ body:hover>.cursor {
     justify-content: flex-end;
     gap: 8rem;
     align-items: center;
-    z-index: 100;
-
 }
 
 .primary-navbar_link {
     text-transform: uppercase;
     font-size: 1.2rem;
     font-family: var(--secondary-font-family);
+    color: black;
+    z-index: 150;
 }
 
 .secondary-navbar {
@@ -204,6 +204,7 @@ body:hover>.cursor {
     border-radius: 40px;
     z-index: 100;
 }
+
 
 .secondary-navbar-expanded {
     position: fixed;
@@ -254,6 +255,7 @@ body:hover>.cursor {
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    overflow: hidden;
 }
 
 .secondary-navbar_primary-list_item{
@@ -266,7 +268,7 @@ body:hover>.cursor {
     bottom: 0;
     left: 0;
     display: flex;
-    background-color: brown;
+    /* background-color: brown; */
     width: 38vw;
     align-items: flex-start;
     justify-content: space-between;
@@ -276,7 +278,7 @@ body:hover>.cursor {
     font-family: var(--secondary-font-family);
     font-size: 1.4rem; 
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     justify-content: center;
     align-items: flex-start;
     gap: 0.4rem;
@@ -290,9 +292,8 @@ body:hover>.cursor {
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    overflow: hidden;
 }
-
-
 
 
 

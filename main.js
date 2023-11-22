@@ -3,7 +3,6 @@ const menuBtn = document.querySelector(".menu-btn");
 const secondaryNav = document.querySelector(".secondary-navbar");
 const logo = document.querySelector(".logo");
 
-
 window.addEventListener("DOMContentLoaded", () => {
     firstHeadingAnimation();
     promotionAnimation();
@@ -96,6 +95,7 @@ function promotionAnimation() {
 
 menuBtn.addEventListener('click', () => {
     secondaryNav.classList.toggle("nav--open");
+    // cursor.classList.toggle(".cursor--blend-mode")
     animateMenu();
 })
 
@@ -103,6 +103,7 @@ menuBtn.addEventListener('click', () => {
 
 let animateMenu = () => {
     if(secondaryNav.classList.contains('nav--open')){
+        // cursor.style.mixBlendMode = "difference"
         gsap.to('.secondary-navbar-expanded',{
             height: '100vh',
             duration: 0.3,
@@ -121,14 +122,41 @@ let animateMenu = () => {
         gsap.to(cursor,{
             backgroundColor: '#fff',
             duration: 0.4,
-        }); 
+        })
+        gsap.to('.primary-navbar_link',{
+            color: '#fff',
+            duration: 0.4,
+        })
+        gsap.from('.secondary-navbar_primary-list_item_text',{
+            y: 30 ,
+            opacity: 0,
+            duration: 0.3,
+            delay: 0.3,
+            stagger: 0.04,
+            opacity: 0, 
+        }) 
+        gsap.from('.secondary-navbar_secondary-list_item_text',{
+            opacity: 0,
+            duration: 0.4,
+            delay: 0.68,
+            stagger: 0.08, 
+            ease: 'power2.out',
+         })
+         gsap.from('.secondary-navbar_secondary-list_item_text2',{
+            opacity: 0,
+            duration: 0.4,
+            delay: 0.68,
+            stagger: 0.08, 
+            ease: 'power2.out',
+         })
     }
     else{
+        // cursor.style.mixBlendMode = "none"
         gsap.to('.secondary-navbar-expanded',{
             height: '0',
-            duration: 0.3,
+            duration: 0,
             ease: 'power2.inOut',
-            padding: '0'
+            padding: '0',
         });
         gsap.to(logo,{
             color: '#000',
@@ -143,5 +171,10 @@ let animateMenu = () => {
             backgroundColor: '#000',
             duration: 0.4,
         }); 
+        gsap.to('.primary-navbar_link',{
+            color: '#000',
+            duration: 0.8,
+        })
+        
     }
 }
