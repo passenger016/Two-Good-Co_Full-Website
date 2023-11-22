@@ -1,5 +1,7 @@
 const cursor = document.querySelector(".cursor");
-
+const menuBtn = document.querySelector(".menu-btn");
+const secondaryNav = document.querySelector(".secondary-navbar");
+const logo = document.querySelector(".logo");
 
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -92,6 +94,54 @@ function promotionAnimation() {
 //     console.log('Initialization complete.');
 // }
 
+menuBtn.addEventListener('click', () => {
+    secondaryNav.classList.toggle("nav--open");
+    animateMenu();
+})
 
 
 
+let animateMenu = () => {
+    if(secondaryNav.classList.contains('nav--open')){
+        gsap.to('.secondary-navbar-expanded',{
+            height: '100vh',
+            duration: 0.3,
+            ease: 'power2.inOut',
+            padding: '1.5rem'
+        });
+        gsap.to(logo,{
+            color: '#fff',
+            duration: 0.4,
+        });
+        gsap.to(secondaryNav,{
+            backgroundColor: '#000',
+            color: '#fff',
+            duration: 0.1,
+        })
+        gsap.to(cursor,{
+            backgroundColor: '#fff',
+            duration: 0.4,
+        }); 
+    }
+    else{
+        gsap.to('.secondary-navbar-expanded',{
+            height: '0',
+            duration: 0.3,
+            ease: 'power2.inOut',
+            padding: '0'
+        });
+        gsap.to(logo,{
+            color: '#000',
+            duration: 0.4,
+        });
+        gsap.to(secondaryNav,{
+            backgroundColor: '#fff',
+            color: '#000',
+            duration: 0.3,
+        });
+        gsap.to(cursor,{
+            backgroundColor: '#000',
+            duration: 0.4,
+        }); 
+    }
+}
