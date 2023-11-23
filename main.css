@@ -162,6 +162,11 @@ body:hover>.cursor {
     left: 1.5rem;
     z-index: 900;
     cursor: pointer;
+    justify-content: flex-start;
+    align-items: center;
+    height: 9.2rem;
+    gap: 1.5rem;
+    overflow: hidden;
 }
 
 .logo {
@@ -171,7 +176,26 @@ body:hover>.cursor {
     font-weight: 800;
     font-size: 3.2rem;
     line-height: 2.7rem;
+    transition: transform 0.13s ease;
 }
+
+.logo_icon {
+    scale: 1.2;
+    transition: transform 0.13s ease;
+}
+
+
+.logo-container.move-up .logo {
+    transform: translateY(-120%);
+}
+
+.logo-container.move-up .logo_icon {
+    transform: translateY(-115%);
+}
+
+
+
+
 
 .primary-navbar {
     background-color: green;
@@ -180,7 +204,10 @@ body:hover>.cursor {
     justify-content: flex-end;
     gap: 8rem;
     align-items: center;
+    width: 100%;
+
 }
+
 
 .primary-navbar_link {
     text-transform: uppercase;
@@ -333,7 +360,7 @@ body:hover>.cursor {
     transition: all 0.2s ease;
 }
 
-.primary-btn:hover{
+.primary-btn:hover {
     background-color: white;
     color: black;
 }
@@ -384,7 +411,7 @@ body:hover>.cursor {
 
 
 /* the `--_scroll-animation-direction` is reversed if the data-direction='right' is mentioned */
-.scroller[data-direction="right"]{
+.scroller[data-direction="right"] {
     --_scroll-animation-direction: reverse;
 }
 

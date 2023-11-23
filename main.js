@@ -116,7 +116,7 @@ menuBtn.addEventListener('click', () => {
             duration: 0.4,
         })
     }
-    else{
+    else {
         gsap.to(logo, {
             color: '#000',
             duration: 0.4,
@@ -243,7 +243,7 @@ cartBtn.addEventListener('click', () => {
             duration: 0.4,
         })
     }
-    else{
+    else {
         gsap.to(logo, {
             color: '#000',
             duration: 0.4,
@@ -293,10 +293,6 @@ let animateCartCard = () => {
 
 
 
-
-
-
-
 // scrolling marquee animation code 
 // checking if the user 'prefer-reduced-motion' to turn off the scrolling animation if that is the user preference , needed for accessibility reasons
 // the scrolling text effect will only work if the 'prefer-reduced-motion' is not set to active by the user
@@ -331,3 +327,22 @@ function addScrollingAnimation() {
 }
 
 
+// Add an event listener to the window for the scroll event
+window.addEventListener('scroll', function() {
+    // Check if the vertical scroll position is greater than 0
+    console.log(window.scrollY)
+    if (window.scrollY > 0) {
+      console.log('Window has been scrolled.');
+      gsap.to('.primary-navbar_link',{
+        opacity: 0,
+      })
+      document.querySelector('.logo-container').classList.add('move-up')
+    } else {
+        gsap.to('.primary-navbar_link',{
+            opacity: 1,
+          })
+          document.querySelector('.logo-container').classList.remove('move-up')
+      console.log('Window is at the top.');
+    }
+  });
+  
