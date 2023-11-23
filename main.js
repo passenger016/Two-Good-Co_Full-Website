@@ -2,6 +2,8 @@ const cursor = document.querySelector(".cursor");
 const menuBtn = document.querySelector(".menu-btn");
 const secondaryNav = document.querySelector(".secondary-navbar");
 const logo = document.querySelector(".logo");
+const cartBtn = document.querySelector('.cart-btn');
+const cartCard = document.querySelector('.cart-expanded')
 
 window.addEventListener("DOMContentLoaded", () => {
     firstHeadingAnimation();
@@ -179,6 +181,37 @@ let animateMenu = () => {
     }
 }
 
+cartBtn.addEventListener('click', () => {
+    secondaryNav.classList.toggle('card--open');
+    animateCartCard();
+})
+
+let animateCartCard = () => {
+    if(secondaryNav.classList.contains('card--open')){
+        gsap.to(cartCard,{
+            height: '80vh',
+        })
+    }
+    else{
+        gsap.to(cartCard,{
+            height: '0',
+        })
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // scrolling marquee animation code 
 // checking if the user 'prefer-reduced-motion' to turn off the scrolling animation if that is the user preference , needed for accessibility reasons
@@ -202,7 +235,7 @@ function addScrollingAnimation() {
         // first it takes the children elements of the scroller-content which in thise case are the li elements and then creates an aray out of them
         const scrollerDublicate = Array.from(scrollerContent.children);
 
-        scrollerDublicate.forEach(item =>{
+        scrollerDublicate.forEach(item => {
             // For each element (item) in the array, cloneNode(true) is called. The cloneNode method creates a copy of the node, and the true argument indicates that it should perform a deep clone, meaning it copies not only the specified node but also all of its descendants (child nodes, grandchildren, and so on).
             const dublicatedItem = item.cloneNode(true);
             console.log(dublicatedItem); // printing the cloned item to check
