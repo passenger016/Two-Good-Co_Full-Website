@@ -346,7 +346,7 @@ body:hover>.cursor {
     align-items: center;
     height: 50vh;
     padding-bottom: 5rem;
-    background-color: purple;
+    /* background-color: purple; */
     flex-direction: column;
     gap: 3.5rem;
 }
@@ -379,7 +379,7 @@ body:hover>.cursor {
 .scroller[data-animated="true"] .scroller-content {
     /* if the scrolling direction is not mentioned then by default it will move 'forwards' with the animation
     and if the scrolling speed is not mentioned then by default it will move with 15s*/
-    animation: scroll var(--_scroll-animation-speed, 15s) var(--_scroll-animation-direction, forwards) linear infinite;
+    animation: scroll var(--_scroll-animation-speed, 13s) var(--_scroll-animation-direction, forwards) linear infinite;
 }
 
 

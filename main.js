@@ -97,21 +97,7 @@ function promotionAnimation() {
 
 menuBtn.addEventListener('click', () => {
     secondaryNav.classList.toggle("nav--open");
-    // cursor.classList.toggle(".cursor--blend-mode")
-    animateMenu();
-})
-
-
-
-let animateMenu = () => {
-    if (secondaryNav.classList.contains('nav--open')) {
-        // cursor.style.mixBlendMode = "difference"
-        gsap.to('.secondary-navbar-expanded', {
-            height: '100vh',
-            duration: 0.3,
-            ease: 'power2.inOut',
-            padding: '1.5rem'
-        });
+    if (secondaryNav.classList.contains("nav--open") || secondaryNav.classList.contains("card--open")) {
         gsap.to(logo, {
             color: '#fff',
             duration: 0.4,
@@ -129,6 +115,61 @@ let animateMenu = () => {
             color: '#fff',
             duration: 0.4,
         })
+    }
+    else{
+        gsap.to(logo, {
+            color: '#000',
+            duration: 0.4,
+        });
+        gsap.to(secondaryNav, {
+            backgroundColor: '#fff',
+            color: '#000',
+            duration: 0.3,
+        });
+        gsap.to(cursor, {
+            backgroundColor: '#000',
+            duration: 0.4,
+        });
+        gsap.to('.primary-navbar_link', {
+            color: '#000',
+            duration: 0.8,
+        })
+    }
+    animateMenu();
+})
+
+
+
+let animateMenu = () => {
+    if (secondaryNav.classList.contains('nav--open')) {
+        if (secondaryNav.classList.contains('card--open')) {
+            secondaryNav.classList.remove('card--open');
+            animateCartCard();
+        }
+        // cursor.style.mixBlendMode = "difference"
+        gsap.to('.secondary-navbar-expanded', {
+            height: '100vh',
+            duration: 0.3,
+            ease: 'power2.inOut',
+            padding: '1.5rem'
+        });
+        // gsap.to(logo, {
+        //     color: '#fff',
+        //     duration: 0.4,
+        // });
+        // gsap.to(secondaryNav, {
+        //     backgroundColor: '#000',
+        //     color: '#fff',
+        //     duration: 0.1,
+        // })
+        // gsap.to(cursor, {
+        //     backgroundColor: '#fff',
+        //     duration: 0.4,
+        // })
+        // gsap.to('.primary-navbar_link', {
+        //     color: '#fff',
+        //     duration: 0.4,
+        // })
         gsap.from('.secondary-navbar_primary-list_item_text', {
             y: 30,
             opacity: 0,
@@ -160,6 +201,49 @@ let animateMenu = () => {
             ease: 'power2.inOut',
             padding: '0',
         });
+        // gsap.to(logo, {
+        //     color: '#000',
+        //     duration: 0.4,
+        // });
+        // gsap.to(secondaryNav, {
+        //     backgroundColor: '#fff',
+        //     color: '#000',
+        //     duration: 0.3,
+        // });
+        // gsap.to(cursor, {
+        //     backgroundColor: '#000',
+        //     duration: 0.4,
+        // });
+        // gsap.to('.primary-navbar_link', {
+        //     color: '#000',
+        //     duration: 0.8,
+        // })
+
+    }
+}
+
+cartBtn.addEventListener('click', () => {
+    secondaryNav.classList.toggle('card--open');
+    if (secondaryNav.classList.contains("nav--open") || secondaryNav.classList.contains("card--open")) {
+        gsap.to(logo, {
+            color: '#fff',
+            duration: 0.4,
+        });
+        gsap.to(secondaryNav, {
+            backgroundColor: '#000',
+            color: '#fff',
+            duration: 0.1,
+        })
+        gsap.to(cursor, {
+            backgroundColor: '#fff',
+            duration: 0.4,
+        })
+        gsap.to('.primary-navbar_link', {
+            color: '#fff',
+            duration: 0.4,
+        })
+    }
+    else{
         gsap.to(logo, {
             color: '#000',
             duration: 0.4,
@@ -177,24 +261,24 @@ let animateMenu = () => {
             color: '#000',
             duration: 0.8,
         })
-
     }
-}
-
-cartBtn.addEventListener('click', () => {
-    secondaryNav.classList.toggle('card--open');
     animateCartCard();
 })
 
 let animateCartCard = () => {
-    if(secondaryNav.classList.contains('card--open')){
-        gsap.to(cartCard,{
+    if (secondaryNav.classList.contains('card--open')) {
+        if (secondaryNav.classList.contains('nav--open')) {
+            secondaryNav.classList.remove('nav--open');
+            animateMenu();
+        }
+        gsap.to(cartCard, {
             height: '80vh',
         })
     }
-    else{
-        gsap.to(cartCard,{
+    else {
+        gsap.to(cartCard, {
             height: '0',
+            duration: 0
         })
     }
 }
