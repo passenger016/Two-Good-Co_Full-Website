@@ -181,12 +181,36 @@ let animateMenu = () => {
 
 
 // scrolling marquee animation code 
+// checking if the user 'prefer-reduced-motion' to turn off the scrolling animation if that is the user preference , needed for accessibility reasons
+// the scrolling text effect will only work if the 'prefer-reduced-motion' is not set to active by the user
 const scrollers = document.querySelectorAll('.scroller');
 
 if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    addScrollingAnimation();
+    addScrollingAnimation(); // if `prefer-reduced-motion` is in active then call for animation
 }
 
-let addScrollingAnimation = () => {
-    
+
+// the srolling animation will work if the scroller has "data-animated: true"
+// this attribute will be added only if the 'prefer-reduced-motion' is inactive
+function addScrollingAnimation() {
+    scrollers.forEach((scroller) => {
+        scroller.setAttribute("data-animated", true);
+
+
+        // dublicating the scroll content
+        const scrollerContent = scroller.querySelector('.scroller-content');
+        // first it takes the children elements of the scroller-content which in thise case are the li elements and then creates an aray out of them
+        const scrollerDublicate = Array.from(scrollerContent.children);
+
+        scrollerDublicate.forEach(item =>{
+            // For each element (item) in the array, cloneNode(true) is called. The cloneNode method creates a copy of the node, and the true argument indicates that it should perform a deep clone, meaning it copies not only the specified node but also all of its descendants (child nodes, grandchildren, and so on).
+            const dublicatedItem = item.cloneNode(true);
+            console.log(dublicatedItem); // printing the cloned item to check
+            dublicatedItem.setAttribute("aria-hidden", true); // setting this will make the rest of the dublicates invisible to screen reader because it's the same text only
+            scrollerContent.appendChild(dublicatedItem);
+        })
+
+    });
 }
+
+

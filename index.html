@@ -107,14 +107,26 @@
                     </button>
                 </div>
                 <div class="card-expanded-content_bottom-container">
-                    <div class="scroller">
-                        <ul class="card-expanded-content_bottom-container_message scroller-content">
+                    <div class="scroller card-expanded-content_bottom-container_message-container">
+                        <ul class="scroller-content card-expanded-content_bottom-container_message">
                             <li>cart</li>
-                            <li>cart</li>
-                            <li>cart</li>
-                            <li>cart</li>
-                            <li>cart</li>
-                            <li>cart</li>
+                            <!--Setting aria-hidden to true makes sure that the screen readers only read one cart-->
+                            <li aria-hidden="true">cart</li>
+                            <li aria-hidden="true">cart</li> 
+                            <li aria-hidden="true">cart</li>
+                            <li aria-hidden="true">cart</li>
+                            <li aria-hidden="true">cart</li>
+                        </ul>
+                    </div>
+                    <div class="scroller card-expanded-content_bottom-container_message-container" data-direction="right">
+                        <ul class="scroller-content card-expanded-content_bottom-container_message">
+                            <li>empty</li>
+                            <!--Setting aria-hidden to true makes sure that the screen readers only read one cart-->
+                            <li aria-hidden="true">empty</li>
+                            <li aria-hidden="true">empty</li> 
+                            <li aria-hidden="true">empty</li>
+                            <li aria-hidden="true">empty</li>
+                            <li aria-hidden="true">empty</li>
                         </ul>
                     </div>
                 </div>

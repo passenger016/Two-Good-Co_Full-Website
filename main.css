@@ -94,7 +94,7 @@ ul {
     padding: 0;
 }
 
-li{
+li {
     margin: 0;
 }
 
@@ -221,7 +221,7 @@ body:hover>.cursor {
 
 }
 
-.secondary-navbar-expanded-content{
+.secondary-navbar-expanded-content {
     position: relative;
     width: 100%;
     height: 100%;
@@ -233,7 +233,7 @@ body:hover>.cursor {
     background-color: brown;
 } */
 
-.secondary-navbar_primary-list{
+.secondary-navbar_primary-list {
     list-style: none;
     color: white;
     z-index: 80;
@@ -248,7 +248,7 @@ body:hover>.cursor {
     flex-direction: column;
 }
 
-.primary-list_mask{
+.primary-list_mask {
     background-color: black;
     margin: 0;
     padding: 0;
@@ -258,11 +258,11 @@ body:hover>.cursor {
     overflow: hidden;
 }
 
-.secondary-navbar_primary-list_item{
+.secondary-navbar_primary-list_item {
     line-height: 1;
 }
 
-.secondary-navbar_secondary-list-container{
+.secondary-navbar_secondary-list-container {
     color: white;
     position: absolute;
     bottom: 0;
@@ -274,9 +274,9 @@ body:hover>.cursor {
     justify-content: space-between;
 }
 
-.secondary-navbar_secondary-list{
+.secondary-navbar_secondary-list {
     font-family: var(--secondary-font-family);
-    font-size: 1.4rem; 
+    font-size: 1.4rem;
     display: flex;
     flex-direction: column-reverse;
     justify-content: center;
@@ -285,7 +285,7 @@ body:hover>.cursor {
     text-transform: capitalize;
 }
 
-.secondary-list_mask{
+.secondary-list_mask {
     /* background-color: black; */
     margin: 0;
     padding: 0;
@@ -295,7 +295,7 @@ body:hover>.cursor {
     overflow: hidden;
 }
 
-.cart-expanded{
+.cart-expanded {
     position: fixed;
     top: 0;
     left: 0;
@@ -309,20 +309,20 @@ body:hover>.cursor {
     padding: 0;
 }
 
-.card-expanded-content{
+.card-expanded-content {
     position: relative;
     width: 100%;
     height: 100%;
 }
 
 
-.card-expanded-content_heading{
+.card-expanded-content_heading {
     font-size: 2.8rem;
     color: white;
     font-family: var(--secondary-font-family);
 }
 
-.primary-btn{
+.primary-btn {
     border: 1px solid white;
     padding: 2.5rem 8rem;
     border-radius: 5rem;
@@ -331,7 +331,7 @@ body:hover>.cursor {
     font-weight: bold;
 }
 
-.card-expanded-content_top-container{
+.card-expanded-content_top-container {
     width: 100%;
     display: flex;
     justify-content: flex-end;
@@ -343,23 +343,57 @@ body:hover>.cursor {
     gap: 3.5rem;
 }
 
-.scroller{
-    max-width: 100%;
+.scroller {
+    max-width: 100vw;
     overflow: hidden;
 }
 
-.card-expanded-content_bottom-container_message{
+.card-expanded-content_bottom-container_message-container {
+    border-top: 2px solid white;
+}
+
+.card-expanded-content_bottom-container_message {
     color: white;
     font-family: var(--primary-font-family);
     font-size: 8.8rem;
     text-transform: uppercase;
-    border-top: 2px solid white;
 }
 
-.scroller-content{
+.scroller-content {
+    width: max-content;
+    /* or `fit-content` to set the scroller-content width to maximum size of the content that is sinside it */
     display: flex;
     gap: 6rem;
 }
+
+
+/* if the `prefer-reduced-motion` is not activated only then the scrolling effect will work or else not */
+.scroller[data-animated="true"] .scroller-content {
+    /* if the scrolling direction is not mentioned then by default it will move 'forwards' with the animation
+    and if the scrolling speed is not mentioned then by default it will move with 15s*/
+    animation: scroll var(--_scroll-animation-speed, 15s) var(--_scroll-animation-direction, forwards) linear infinite;
+}
+
+
+/* the `--_scroll-animation-direction` is reversed if the data-direction='right' is mentioned */
+.scroller[data-direction="right"]{
+    --_scroll-animation-direction: reverse;
+}
+
+
+@keyframes scroll {
+    to {
+        transform: translate(calc(-50% - 3rem));
+    }
+}
+
+
+
+
+
+
+
+
 
 
 
