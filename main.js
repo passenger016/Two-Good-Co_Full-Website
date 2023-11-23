@@ -102,79 +102,91 @@ menuBtn.addEventListener('click', () => {
 
 
 let animateMenu = () => {
-    if(secondaryNav.classList.contains('nav--open')){
+    if (secondaryNav.classList.contains('nav--open')) {
         // cursor.style.mixBlendMode = "difference"
-        gsap.to('.secondary-navbar-expanded',{
+        gsap.to('.secondary-navbar-expanded', {
             height: '100vh',
             duration: 0.3,
             ease: 'power2.inOut',
             padding: '1.5rem'
         });
-        gsap.to(logo,{
+        gsap.to(logo, {
             color: '#fff',
             duration: 0.4,
         });
-        gsap.to(secondaryNav,{
+        gsap.to(secondaryNav, {
             backgroundColor: '#000',
             color: '#fff',
             duration: 0.1,
         })
-        gsap.to(cursor,{
+        gsap.to(cursor, {
             backgroundColor: '#fff',
             duration: 0.4,
         })
-        gsap.to('.primary-navbar_link',{
+        gsap.to('.primary-navbar_link', {
             color: '#fff',
             duration: 0.4,
         })
-        gsap.from('.secondary-navbar_primary-list_item_text',{
-            y: 30 ,
+        gsap.from('.secondary-navbar_primary-list_item_text', {
+            y: 30,
             opacity: 0,
             duration: 0.3,
             delay: 0.3,
             stagger: 0.04,
-            opacity: 0, 
-        }) 
-        gsap.from('.secondary-navbar_secondary-list_item_text',{
+            opacity: 0,
+        })
+        gsap.from('.secondary-navbar_secondary-list_item_text', {
             opacity: 0,
             duration: 0.4,
             delay: 0.68,
-            stagger: 0.08, 
+            stagger: 0.08,
             ease: 'power2.out',
-         })
-         gsap.from('.secondary-navbar_secondary-list_item_text2',{
+        })
+        gsap.from('.secondary-navbar_secondary-list_item_text2', {
             opacity: 0,
             duration: 0.4,
             delay: 0.68,
-            stagger: 0.08, 
+            stagger: 0.08,
             ease: 'power2.out',
-         })
+        })
     }
-    else{
+    else {
         // cursor.style.mixBlendMode = "none"
-        gsap.to('.secondary-navbar-expanded',{
+        gsap.to('.secondary-navbar-expanded', {
             height: '0',
             duration: 0,
             ease: 'power2.inOut',
             padding: '0',
         });
-        gsap.to(logo,{
+        gsap.to(logo, {
             color: '#000',
             duration: 0.4,
         });
-        gsap.to(secondaryNav,{
+        gsap.to(secondaryNav, {
             backgroundColor: '#fff',
             color: '#000',
             duration: 0.3,
         });
-        gsap.to(cursor,{
+        gsap.to(cursor, {
             backgroundColor: '#000',
             duration: 0.4,
-        }); 
-        gsap.to('.primary-navbar_link',{
+        });
+        gsap.to('.primary-navbar_link', {
             color: '#000',
             duration: 0.8,
         })
-        
+
     }
+}
+
+
+// scrolling marquee animation code 
+const scrollers = document.querySelectorAll('.scroller');
+
+if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    addScrollingAnimation();
+}
+
+let addScrollingAnimation = () => {
+    
 }

@@ -295,6 +295,82 @@ body:hover>.cursor {
     overflow: hidden;
 }
 
+.cart-expanded{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80vh;
+    /* background-color: #333; */
+    background-color: black;
+    overflow: hidden;
+    transition: height 0.3s ease-out;
+    z-index: 80;
+    padding: 0;
+}
+
+.card-expanded-content{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+
+.card-expanded-content_heading{
+    font-size: 2.8rem;
+    color: white;
+    font-family: var(--secondary-font-family);
+}
+
+.primary-btn{
+    border: 1px solid white;
+    padding: 2.5rem 8rem;
+    border-radius: 5rem;
+    font-family: var(--secondary-font-family);
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.card-expanded-content_top-container{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 50vh;
+    padding-bottom: 5rem;
+    background-color: purple;
+    flex-direction: column;
+    gap: 3.5rem;
+}
+
+.scroller{
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.card-expanded-content_bottom-container_message{
+    color: white;
+    font-family: var(--primary-font-family);
+    font-size: 8.8rem;
+    text-transform: uppercase;
+    border-top: 2px solid white;
+}
+
+.scroller-content{
+    display: flex;
+    gap: 6rem;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
