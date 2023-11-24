@@ -115,6 +115,9 @@ menuBtn.addEventListener('click', () => {
             color: '#fff',
             duration: 0.4,
         })
+        gsap.to('.logo_icon',{
+            filter: 'invert(1)',
+        })
     }
     else {
         gsap.to(logo, {
@@ -133,6 +136,9 @@ menuBtn.addEventListener('click', () => {
         gsap.to('.primary-navbar_link', {
             color: '#000',
             duration: 0.8,
+        })
+        gsap.to('.logo_icon',{
+            filter: 'invert(0)',
         })
     }
     animateMenu();
@@ -192,6 +198,7 @@ let animateMenu = () => {
             stagger: 0.08,
             ease: 'power2.out',
         })
+        
     }
     else {
         // cursor.style.mixBlendMode = "none"
@@ -242,6 +249,9 @@ cartBtn.addEventListener('click', () => {
             color: '#fff',
             duration: 0.4,
         })
+        gsap.to('.logo_icon',{
+            filter: 'invert(1)',
+        })
     }
     else {
         gsap.to(logo, {
@@ -260,6 +270,9 @@ cartBtn.addEventListener('click', () => {
         gsap.to('.primary-navbar_link', {
             color: '#000',
             duration: 0.8,
+        })
+        gsap.to('.logo_icon',{
+            filter: 'invert(0)',
         })
     }
     animateCartCard();
