@@ -22,7 +22,7 @@
             <i data-feather="menu" class="menu-btn" style="stroke-width: 1; width: 2rem;"></i>
             <i data-feather="shopping-cart" class="cart-btn" style="stroke-width: 1; width: 2rem;"></i>
         </nav>
-        <div class="logo-container">
+        <div class="logo-container" onclick="redirectToPage()">
             <span class="logo">two<br>good<br>co.</span>
             <span class="logo_icon"><img class="logo_icon-image" src="/images/logo_icon.svg" alt=""></span>
         </div>
@@ -289,6 +289,9 @@
     <!-- Initialize Feather Icons -->
     <script>
         feather.replace();
+        function redirectToPage(){
+            window.location.href = "http://localhost:5500/index.html";
+        }
     </script>
 
 
