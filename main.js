@@ -115,7 +115,7 @@ menuBtn.addEventListener('click', () => {
             color: '#fff',
             duration: 0.4,
         })
-        gsap.to('.logo_icon',{
+        gsap.to('.logo_icon', {
             filter: 'invert(1)',
         })
     }
@@ -137,7 +137,7 @@ menuBtn.addEventListener('click', () => {
             color: '#000',
             duration: 0.8,
         })
-        gsap.to('.logo_icon',{
+        gsap.to('.logo_icon', {
             filter: 'invert(0)',
         })
     }
@@ -198,7 +198,7 @@ let animateMenu = () => {
             stagger: 0.08,
             ease: 'power2.out',
         })
-        
+
     }
     else {
         // cursor.style.mixBlendMode = "none"
@@ -249,7 +249,7 @@ cartBtn.addEventListener('click', () => {
             color: '#fff',
             duration: 0.4,
         })
-        gsap.to('.logo_icon',{
+        gsap.to('.logo_icon', {
             filter: 'invert(1)',
         })
     }
@@ -271,7 +271,7 @@ cartBtn.addEventListener('click', () => {
             color: '#000',
             duration: 0.8,
         })
-        gsap.to('.logo_icon',{
+        gsap.to('.logo_icon', {
             filter: 'invert(0)',
         })
     }
@@ -286,6 +286,15 @@ let animateCartCard = () => {
         }
         gsap.to(cartCard, {
             height: '80vh',
+            duration: 0.3,
+            ease: 'power2.inOut',
+        })
+        gsap.from('.card-expanded-content_top-container', {
+            y:-20,
+            opacity: '0',
+            duration: 0.3,
+            stagger: 0.1,
+            delay: 0.39,
         })
     }
     else {
@@ -341,21 +350,21 @@ function addScrollingAnimation() {
 
 
 // Add an event listener to the window for the scroll event
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
     // Check if the vertical scroll position is greater than 0
     console.log(window.scrollY)
     if (window.scrollY > 0) {
-      console.log('Window has been scrolled.');
-      gsap.to('.primary-navbar_link',{
-        opacity: 0,
-      })
-      document.querySelector('.logo-container').classList.add('move-up')
+        console.log('Window has been scrolled.');
+        gsap.to('.primary-navbar_link', {
+            opacity: 0,
+        })
+        document.querySelector('.logo-container').classList.add('move-up')
     } else {
-        gsap.to('.primary-navbar_link',{
+        gsap.to('.primary-navbar_link', {
             opacity: 1,
-          })
-          document.querySelector('.logo-container').classList.remove('move-up')
-      console.log('Window is at the top.');
+        })
+        document.querySelector('.logo-container').classList.remove('move-up')
+        console.log('Window is at the top.');
     }
-  });
-  
+});
+
