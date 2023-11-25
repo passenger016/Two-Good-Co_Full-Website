@@ -3,7 +3,9 @@ const menuBtn = document.querySelector(".menu-btn");
 const secondaryNav = document.querySelector(".secondary-navbar");
 const logo = document.querySelector(".logo");
 const cartBtn = document.querySelector('.cart-btn');
-const cartCard = document.querySelector('.cart-expanded')
+const cartCard = document.querySelector('.cart-expanded');
+const backToMenuBtn = document.querySelector('.back-to-menu-btn')
+let navState = false
 
 window.addEventListener("DOMContentLoaded", () => {
     firstHeadingAnimation();
@@ -58,17 +60,24 @@ let animateTrailer = (e, interacting) => {
 
 
 function firstHeadingAnimation() {
-    gsap.from(".first-section_heading", {
-        y: 400, // starts from y:30 and ends at the current position
-        opacity: 0, // it starts from opacity 0 and ends at 1(current opacity)
-        duration: 0.6, // the total animation duration
-        delay: 0.5, // before the start of the animation there will be a 0.5 second delay
-        stagger: 0.2 // delay of 0.2s between each element under the animation
-    });
-
-
-
-
+    if (document.title == 'Home') {
+        gsap.from(".first-section_heading", {
+            y: 400, // starts from y:30 and ends at the current position
+            opacity: 0, // it starts from opacity 0 and ends at 1(current opacity)
+            duration: 0.6, // the total animation duration
+            delay: 0.5, // before the start of the animation there will be a 0.5 second delay
+            stagger: 0.2 // delay of 0.2s between each element under the animation
+        });
+    }
+    if (document.title == 'Shop') {
+        gsap.from(".shop_first-section_heading", {
+            y: 400, // starts from y:30 and ends at the current position
+            opacity: 0, // it starts from opacity 0 and ends at 1(current opacity)
+            duration: 0.6, // the total animation duration
+            delay: 0.5, // before the start of the animation there will be a 0.5 second delay
+            stagger: 0.2 // delay of 0.2s between each element under the animation
+        });
+    }
 
 }
 
@@ -82,21 +91,112 @@ function promotionAnimation() {
     });
 }
 
+/* listening for click on the 'back to menu' button in the donate section , on click the donate section is hidden while the nav and other contents remain same and the 
+primary list of the nav is made visible and also animated*/
+backToMenuBtn.addEventListener('click',()=>{
+    document.querySelector('.secondary-navbar_donate-container').classList.add('hidden');
+    document.querySelector('.secondary-navbar_primary-list').classList.remove('hidden');
 
-// window.onload = () => {
-//     console.log('Initializing Locomotive Scroll...');
-//     const scroll = new LocomotiveScroll({
-//         el: document.querySelector('.main'),
-//         smooth: true,
-//         multiplier: 1,
-//         inertia: 0.6,
-//         lerp: 0.7,
-//     });
-//     console.log('Initialization complete.');
-// }
+    // adding the animation for th primary list of the secondary navbar
+    gsap.from('.secondary-navbar_primary-list_item_text', {
+        y: 30,
+        opacity: 0,
+        duration: 0.3,
+        delay: 0.3,
+        stagger: 0.04,
+        opacity: 0,
+    })
+})
+
+
+
+
+
+
+function checkNavOpened() {
+    navState = (secondaryNav.classList.contains("nav--open")) ? true : false;
+    console.log(`secondary nav opened :${navState}`);
+}
+
+
+function openDonateCard() {
+    if (navState) {
+        console.log('nav already open')
+        document.querySelector('.secondary-navbar_primary-list').classList.add('hidden')
+        if (document.querySelector('.secondary-navbar_donate-container').classList.contains('hidden'))
+            document.querySelector('.secondary-navbar_donate-container').classList.remove('hidden')
+    }
+    else {
+        document.querySelector('.secondary-navbar_donate-container').classList.remove('hidden')
+        secondaryNav.classList.toggle("nav--open");
+        checkNavOpened();
+        document.querySelector('.secondary-navbar_primary-list').classList.add('hidden')
+        if (secondaryNav.classList.contains("nav--open") || secondaryNav.classList.contains("card--open")) {
+            gsap.to(logo, {
+                color: '#fff',
+                duration: 0.4,
+            });
+            gsap.to(secondaryNav, {
+                backgroundColor: '#000',
+                color: '#fff',
+                duration: 0.1,
+            })
+            gsap.to(cursor, {
+                backgroundColor: '#fff',
+                duration: 0.4,
+            })
+            gsap.to('.primary-navbar_link', {
+                color: '#fff',
+                duration: 0.4,
+            })
+            gsap.to('.logo_icon', {
+                filter: 'invert(1)',
+            })
+        }
+        else {
+            gsap.to(logo, {
+                color: '#000',
+                duration: 0.4,
+            });
+            gsap.to(secondaryNav, {
+                backgroundColor: '#fff',
+                color: '#000',
+                duration: 0.3,
+            });
+            gsap.to(cursor, {
+                backgroundColor: '#000',
+                duration: 0.4,
+            });
+            gsap.to('.primary-navbar_link', {
+                color: '#000',
+                duration: 0.8,
+            })
+            gsap.to('.logo_icon', {
+                filter: 'invert(0)',
+            })
+        }
+        animateMenu();
+    }
+}
+
+
 
 menuBtn.addEventListener('click', () => {
+
+
+    if (navState) {
+        console.log('nav already open')
+        document.querySelector('.secondary-navbar_primary-list').classList.remove('hidden')
+        if (!(document.querySelector('.secondary-navbar_donate-container').classList.contains('hidden')))
+            document.querySelector('.secondary-navbar_donate-container').classList.add('hidden')
+    }
+    
     secondaryNav.classList.toggle("nav--open");
+    checkNavOpened();
+
+    if (document.querySelector('.secondary-navbar_primary-list').classList.contains('hidden'))
+        document.querySelector('.secondary-navbar_primary-list').classList.remove('hidden')
+
     if (secondaryNav.classList.contains("nav--open") || secondaryNav.classList.contains("card--open")) {
         gsap.to(logo, {
             color: '#fff',
@@ -141,6 +241,7 @@ menuBtn.addEventListener('click', () => {
             filter: 'invert(0)',
         })
     }
+    // document.querySelector('.secondary-navbar_donate-container').classList.add('hidden')
     animateMenu();
 })
 
@@ -290,7 +391,7 @@ let animateCartCard = () => {
             ease: 'power2.inOut',
         })
         gsap.from('.card-expanded-content_top-container', {
-            y:-20,
+            y: -20,
             opacity: '0',
             duration: 0.3,
             stagger: 0.1,
@@ -307,6 +408,22 @@ let animateCartCard = () => {
 
 
 
+// frequency of fonation , one-time , weekly or monthly button selected code
+
+let donationBtns = document.querySelectorAll('.donation-frequency_btn');
+
+donationBtns.forEach((donationBtn) => {
+    donationBtn.addEventListener('click', () => {
+
+        // remove the 'clicked' class from each button
+        donationBtns.forEach((donationBtn) => {
+            donationBtn.classList.remove('clicked');
+        });
+
+        // add the 'clicked' class to the current button
+        donationBtn.classList.add('clicked');
+    })
+})
 
 
 

@@ -276,6 +276,18 @@ body:hover>.cursor {
     flex-direction: column;
 }
 
+.secondary-navbar_primary-list.hidden{
+    visibility: hidden;
+}
+
+.secondary-navbar_donate-container.hidden{
+    visibility: hidden;
+}
+
+
+
+
+
 .primary-list_mask {
     background-color: black;
     margin: 0;
@@ -378,6 +390,109 @@ body:hover>.cursor {
     flex-direction: column;
     gap: 3.5rem;
 }
+
+.secondary-navbar_donate-container{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 80;
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    /* background-color: purple; */
+    gap: 4rem;
+    margin-bottom: 5rem;
+}
+
+.secondary-navbar_donate-container_top-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    /* background-color: brown; */
+    gap: 2rem;
+}
+
+.secondary-navbar_donate-container_bottom-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    /* background-color: brown; */
+    gap: 2rem;
+}
+
+
+.donation-frequency-container{
+    width: max-content;
+    height: max-content;
+    border: 1px solid #313131;
+    display: flex;
+    /* border-radius: 5rem; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.donation-frequency_btn{
+    font-family: var(--secondary-font-family);
+    font-size: 1.2rem;
+    color: white;
+    padding: 1rem 2rem;
+}
+
+.donation-frequency_btn.clicked{
+    background-color: white;
+    color: black;
+}
+
+.amount-btn-container{
+    display: flex;
+    /* background-color: darkred; */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    height: max-content;
+    justify-content: start;
+    align-items: center;
+    gap: 1rem;
+}
+
+.amount-btn{
+    padding: 1.5rem 3.0rem;
+    border-radius: 2.5rem;
+    border: 2px solid #313131;
+    font-size: 1.6rem;
+    font-family: var(--secondary-font-family);
+    color: white;
+
+}
+
+.secondary-navbar_donate_heading{
+    font-family: var(--primary-font-family);
+    font-size: 3.2rem;
+    text-transform: uppercase;
+    color:white;
+    line-height: 3rem;
+}
+
+.back-to-menu-btn{
+    font-family: var(--secondary-font-family);
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    text-align: start;
+    font-size: 1.4rem;
+}
+
+
+
+
+
 
 .scroller {
     max-width: 100vw;

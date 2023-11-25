@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Two Good Co Test</title>
+    <title>Home</title>
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css" /> -->
     <link rel="stylesheet" href="main.css" /> 
 </head>
@@ -16,7 +16,7 @@
         <nav class="primary-navbar">
             <a class="primary-navbar_link" href="./pages/shop.html">Shop</a>
             <a class="primary-navbar_link" href="#">catering</a>
-            <a class="primary-navbar_link" href="#">donate</a>
+            <a class="primary-navbar_link" href="#" onclick="openDonateCard()">donate</a>
         </nav>
         <nav class="secondary-navbar">
             <i data-feather="menu" class="menu-btn" style="stroke-width: 1; width: 2rem;"></i>
@@ -57,6 +57,45 @@
                             <div class="primary-list_mask"><a class="secondary-navbar_primary-list_item_text" href="">sign in</a></div>
                         </li>
                     </ul>
+                </div>
+                <div class="secondary-navbar_donate-container hidden">
+                    <div class="secondary-navbar_donate-container_top-container">
+                        <button class="back-to-menu-btn">
+                            back to menu
+                        </button>
+                        <h1 class="secondary-navbar_donate_heading ">THANK YOU FOR DONATING TO THE TWO GOOD FOUNDATION. YOU ARE 
+                            HELPING TO CHANGE THE COURSE OF A WOMAN'S LIFE FOR GOOD.</h1>
+                    </div>
+
+                    <div class="secondary-navbar_donate-container_bottom-container">
+
+                        <div class="donation-frequency-container">
+                            <button class="donation-frequency_btn clicked">
+                                One-Time
+                            </button>
+                            <button class="donation-frequency_btn">
+                                Weekly
+                            </button>
+                            <button class="donation-frequency_btn">
+                                Montly
+                            </button>
+                            
+                        </div>
+
+                        <div class="amount-btn-container">
+                            <button class="amount-btn">$500</button>
+                            <button class="amount-btn">$500</button>
+                            <button class="amount-btn">$500</button>
+                            <button class="amount-btn">$500</button>
+                            <button class="amount-btn">$500</button>
+                            <button class="amount-btn">$500</button>
+                            <button class="amount-btn">$500</button>
+                        </div>
+
+                    </div>
+
+
+
                 </div>
                 <div class="secondary-navbar_secondary-list-container">
                     <ul class="secondary-navbar_secondary-list">
