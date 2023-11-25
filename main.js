@@ -13,7 +13,6 @@ window.addEventListener("DOMContentLoaded", () => {
 })
 
 
-
 window.addEventListener('mousemove', (e) => {
     const x = e.clientX - cursor.offsetWidth / 2;
     const y = e.clientY - cursor.offsetHeight / 2;
@@ -93,7 +92,7 @@ function promotionAnimation() {
 
 /* listening for click on the 'back to menu' button in the donate section , on click the donate section is hidden while the nav and other contents remain same and the 
 primary list of the nav is made visible and also animated*/
-backToMenuBtn.addEventListener('click',()=>{
+backToMenuBtn.addEventListener('click', () => {
     document.querySelector('.secondary-navbar_donate-container').classList.add('hidden');
     document.querySelector('.secondary-navbar_primary-list').classList.remove('hidden');
 
@@ -192,9 +191,9 @@ menuBtn.addEventListener('click', () => {
     //         document.querySelector('.secondary-navbar_donate-container').classList.add('hidden')
     // }
 
-    if(navState){
+    if (navState) {
         console.log('nav was closed')
-        
+
     }
 
     secondaryNav.classList.toggle("nav--open");
@@ -491,3 +490,14 @@ window.addEventListener('scroll', function () {
     }
 });
 
+
+// splitting of letters for the circular text
+
+const circularText = document.querySelector('.circular-text');
+
+circularText.innerHTML = circularText.textContent.replace(/\S/g, "<span>$&</span>");
+
+const circularSpan = document.querySelectorAll('span');
+for (let i = 0; i < circularSpan.length; i++) {
+    circularSpan[i].style.transform = "rotate(" + i * 12.2 + "deg)"
+}
