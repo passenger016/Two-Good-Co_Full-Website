@@ -122,6 +122,7 @@ function checkNavOpened() {
 function openDonateCard() {
     if (navState) {
         console.log('nav already open')
+        console.log(`secondary nav state: ${navState}`);
         document.querySelector('.secondary-navbar_primary-list').classList.add('hidden')
         if (document.querySelector('.secondary-navbar_donate-container').classList.contains('hidden'))
             document.querySelector('.secondary-navbar_donate-container').classList.remove('hidden')
@@ -184,13 +185,18 @@ function openDonateCard() {
 menuBtn.addEventListener('click', () => {
 
 
-    if (navState) {
-        console.log('nav already open')
-        document.querySelector('.secondary-navbar_primary-list').classList.remove('hidden')
-        if (!(document.querySelector('.secondary-navbar_donate-container').classList.contains('hidden')))
-            document.querySelector('.secondary-navbar_donate-container').classList.add('hidden')
+    // if (navState) {
+    //     console.log('nav already open')
+    //     document.querySelector('.secondary-navbar_primary-list').classList.remove('hidden')
+    //     if (!(document.querySelector('.secondary-navbar_donate-container').classList.contains('hidden')))
+    //         document.querySelector('.secondary-navbar_donate-container').classList.add('hidden')
+    // }
+
+    if(navState){
+        console.log('nav was closed')
+        
     }
-    
+
     secondaryNav.classList.toggle("nav--open");
     checkNavOpened();
 
