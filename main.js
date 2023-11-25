@@ -493,11 +493,11 @@ window.addEventListener('scroll', function () {
 
 // splitting of letters for the circular text
 
-const circularText = document.querySelector('.circular-text');
+// const circularText = document.querySelector('.circular-text');
 
-circularText.innerHTML = circularText.textContent.replace(/\S/g, "<span>$&</span>");
+// circularText.innerHTML = circularText.textContent.replace(/\S/g, "<span class='circular-span'>$&</span>");
 
-const circularSpan = document.querySelectorAll('span');
-for (let i = 0; i < circularSpan.length; i++) {
-    circularSpan[i].style.transform = "rotate(" + i * 12.2 + "deg)"
-}
+// const circularSpan = document.querySelectorAll('circular-span');
+// for (let i = 0; i < circularSpan.length; i++) {
+//     circularSpan[i].style.transform = "rotate(" + i * 10 + "deg)"
+// }

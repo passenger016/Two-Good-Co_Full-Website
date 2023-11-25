@@ -649,7 +649,7 @@ body:hover>.cursor {
     transform: translate(-20, -20); */
 }
 
-.circular-text span{
+.circular-text .circular-span{
     font-weight: bold;
     top: -100px;
     display: inline-block;
