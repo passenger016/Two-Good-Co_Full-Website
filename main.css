@@ -118,9 +118,84 @@ body {
 
 }
 
+.pre-loader-container{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    z-index: 1500;
+    display: flex;
+    gap: 5.5rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: column;
+    opacity: 1;
+    transition: opacity 0.3s ease-in;
+    pointer-events: none;
+}
+
+.pre-loader_logo-icon-container{
+    /* background-color: purple; */
+}
+
+.pre-loader_logo-icon{
+    filter: invert(1);
+    transform: scale(1.8);
+    animation: opacity 1.8s infinite;
+    /* background-color: brown; */
+}
+
+.pre-loader-container.hidden{
+    opacity: 0;
+    visibility: hidden;
+}
+
+.progress-bar-container{
+    width: 20rem;
+    height: 0.2rem;
+    background-color: #313131;
+}
+
+.progress{
+    animation: progress 0.9s ease-in;
+    height: 100%;
+    background-color: white;
+}
+
+@keyframes progress {
+    0%{
+        width: 0;
+    }
+    60%{
+        width: 60%;
+    }
+    100%{
+        width: 100%;
+    }
+
+}
 
 
 
+
+
+
+
+
+@keyframes opacity {
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
 
 .cursor {
     width: 2rem;

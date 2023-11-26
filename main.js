@@ -6,11 +6,31 @@ const cartBtn = document.querySelector('.cart-btn');
 const cartCard = document.querySelector('.cart-expanded');
 const backToMenuBtn = document.querySelector('.back-to-menu-btn')
 let navState = false
+let windowLoaded = false;
 
-window.addEventListener("DOMContentLoaded", () => {
+// window.addEventListener("DOMContentLoaded", () => {
+//     firstHeadingAnimation();
+//     promotionAnimation();
+// })
+
+
+
+// instead of checking for dom content loading check for when the entire window has been loaded then fire the primary animations
+window.addEventListener('load', function () {
+    // Code to run after the window has finished loading
+    document.querySelector('.pre-loader-container').classList.add('hidden');
+    console.log('Window has finished loading');
+    setTimeout(() => {
+        // creating a fake delay before loading the primary animations
+        // window.dispatchEvent(new Event('load'));
+    }, 1500);
     firstHeadingAnimation();
     promotionAnimation();
-})
+});
+
+
+
+
 
 
 window.addEventListener('mousemove', (e) => {
@@ -489,6 +509,10 @@ window.addEventListener('scroll', function () {
         console.log('Window is at the top.');
     }
 });
+
+
+
+
 
 
 // splitting of letters for the circular text
