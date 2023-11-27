@@ -137,9 +137,9 @@ body {
     pointer-events: none;
 }
 
-.pre-loader_logo-icon-container{
-    /* background-color: purple; */
-}
+/* .pre-loader_logo-icon-container{
+    background-color: purple;
+} */
 
 .pre-loader_logo-icon{
     filter: invert(1);
