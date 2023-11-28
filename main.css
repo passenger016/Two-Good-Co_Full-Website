@@ -919,9 +919,19 @@ body:hover>.cursor {
 
 .product_image[data-type="1"],
 .product_image[data-type="3"],
-.product_image[data-type="4"] {
+.product_image[data-type="4"]
+{
     width: 90%;
 }
+
+.product_image[data-type="5"]{
+    transform: scale(1.8);
+}
+
+.product_image[data-type="6"]{
+    transform: scale(0.8);
+}
+
 
 .product_container {
     display: flex;

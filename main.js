@@ -18,6 +18,7 @@ let windowLoaded = false;
 
 // instead of checking for dom content loading check for when the entire window has been loaded then fire the primary animations
 window.addEventListener('load', function () {
+
     // Code to run after the window has finished loading
     document.querySelector('.pre-loader-container').classList.add('hidden');
     console.log('Window has finished loading');
@@ -28,6 +29,9 @@ window.addEventListener('load', function () {
     console.log(`document title is ${this.document.title}`)
     firstHeadingAnimation();
     promotionAnimation();
+
+
+
 });
 
 
@@ -532,13 +536,15 @@ window.addEventListener('scroll', function () {
 
 
 // listening to click events on each product 
-products.forEach((product) => {
+products.forEach((product, i) => {
     product.addEventListener('click', () => {
-        console.log(`product was clicked`);
-        if(this.document.title=='Home')
-        window.location.href = '/pages/product.html?id=${productId}'
-        if(this.document.title=='Shop')
-        window.location.href = 'product.html?id=${productId}' // replace it by `` to mak the product id be displayed
+        const productId = products[i].id;
+        console.log(`product was clicked ${productId}`); // just for checking if the right product is being clicked
+        if (this.document.title == 'Home')
+            window.location.href = `/pages/product.html?id=${productId}`
+        if (this.document.title == 'Shop')
+
+            window.location.href = `product.html?id=${productId}` // replace it by `` to mak the product id be displayed
     })
 })
 
@@ -550,3 +556,52 @@ products.forEach((product) => {
 
 // logic for dynamically adding content to the product.html starts here. 
 
+const productsList = [
+    {
+        id: 0,
+        name: 'change the course cookbook',
+        price: '$45',
+    },
+    {
+        id: 1,
+        name: 'change the course cook kit',
+        price: '$95',
+    },
+    {
+        id: 2,
+        name: 'the inside scoop good feels crackers set',
+        price: '$50',
+    },
+    {
+        id: 3,
+        name: 'hunter x too good limited edition candle',
+        price: '$49',
+    },
+    {
+        id: 4,
+        name: 'the good old glaze kit',
+        price: '$120',
+    },
+    {
+        id: 10,
+        name: 'two good native tea',
+        price: '$34',
+    },
+    {
+        id: 6,
+        name: '',
+        price: '',
+    }
+]
+
+
+const urlParams = new URLSearchParams(window.location.search);
+
+if (urlParams.get('id')) {
+    console.log('we are on the product page');
+    const productId = parseInt(urlParams.get('id'));
+    const findProduct = productsList.find(product => product.id === productId);
+    console.log(`${findProduct.name}`); // printing the name of thr product to check if it's working properly
+    document.querySelector('.product--price').textContent = findProduct.price;
+    document.querySelector('.product--name').textContent = findProduct.name;
+}
