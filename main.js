@@ -561,31 +561,42 @@ const productsList = [
         id: 0,
         name: 'change the course cookbook',
         price: '$45',
+        thumbnailImage: '../images/iloveimg-compressed/product image 0.png'
     },
     {
         id: 1,
         name: 'change the course cook kit',
         price: '$95',
+        thumbnailImage: '../images/iloveimg-compressed/product image 1.png',
+        info1: 'At Two Good Co, we believe that food is more than food…we believe that food is a universal love language, with the power to change the course of someones life.',
+        info2: 'Our Change The Course Cookbook features shorter recipes, simpler ingredients and adaptable techniques, designed to help you achieve goodness with less, while our 100% cotton twill apron looks good and works hard for anyone serving up Good Food and Good Times.'
     },
     {
         id: 2,
         name: 'the inside scoop good feels crackers set',
         price: '$50',
+        thumbnailImage: '../images/iloveimg-compressed/product image 2.png',
+        info1: 'Enhance your holiday gifting with our exquisite set of six beautifully packaged Good Feels Crackers.',
+        info2: 'With each Good Feels Cracker, you gift a nutritious, delicious dinner cooked with love to women and their children taking refuge in a shelter…as well as receive a voucher for a free scoop of Messina gelato (valid until 31 Dec 2024).',
+        extrainfo: 'Pack of 6 Crackers.',
     },
     {
         id: 3,
         name: 'hunter x too good limited edition candle',
         price: '$49',
+        thumbnailImage: '../images/iloveimg-compressed/product image 3.png'
     },
     {
         id: 4,
         name: 'the good old glaze kit',
         price: '$120',
+        thumbnailImage: '../images/iloveimg-compressed/product image 4.png'
     },
     {
         id: 10,
         name: 'two good native tea',
         price: '$34',
+        thumbnailImage: '../images/iloveimg-compressed/product image 10.png'
     },
     {
         id: 6,
@@ -604,4 +615,10 @@ if (urlParams.get('id')) {
     console.log(`${findProduct.name}`); // printing the name of thr product to check if it's working properly
     document.querySelector('.product--price').textContent = findProduct.price;
     document.querySelector('.product--name').textContent = findProduct.name;
+    console.log(findProduct.thumbnailImage)
+    console.log(`current src ${document.querySelector('.product--thumbnail-image').src}`)
+    document.querySelector('.product--thumbnail-image').src = findProduct.thumbnailImage;
+    document.querySelector('.product--info1').textContent = findProduct.info1;
+    document.querySelector('.product--info2').textContent = findProduct.info2;
+    document.querySelector('.extra--info').textContent = findProduct.extrainfo;
 }
