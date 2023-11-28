@@ -633,5 +633,6 @@ if (urlParams.get('id')) {
     productColor.forEach(product => {
         product.style.color = findProduct.color;
     })
-    document.querySelector('.product--btn-color').style.backgroundColor=findProduct.color;
+    document.querySelector('.product--btn-color').style.backgroundColor = findProduct.color;
+    document.querySelector('.product_first-section_inner-container').style.borderBottom = `1px solid ${findProduct.color}`
 }
