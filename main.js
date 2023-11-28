@@ -25,6 +25,7 @@ window.addEventListener('load', function () {
         // creating a fake delay before loading the primary animations
         // window.dispatchEvent(new Event('load'));
     }, 1500);
+    console.log(`document title is ${this.document.title}`)
     firstHeadingAnimation();
     promotionAnimation();
 });
@@ -80,7 +81,7 @@ let animateTrailer = (e, interacting) => {
 
 
 function firstHeadingAnimation() {
-    if (document.title == 'Home') {
+    if (this.document.title == 'Home') {
         gsap.from(".first-section_heading", {
             y: 400, // starts from y:30 and ends at the current position
             opacity: 0, // it starts from opacity 0 and ends at 1(current opacity)
@@ -89,7 +90,7 @@ function firstHeadingAnimation() {
             stagger: 0.2 // delay of 0.2s between each element under the animation
         });
     }
-    if (document.title == 'Shop') {
+    if (this.document.title == 'Shop') {
         gsap.from(".shop_first-section_heading", {
             y: 400, // starts from y:30 and ends at the current position
             opacity: 0, // it starts from opacity 0 and ends at 1(current opacity)
@@ -534,8 +535,18 @@ window.addEventListener('scroll', function () {
 products.forEach((product) => {
     product.addEventListener('click', () => {
         console.log(`product was clicked`);
-        window.location.href = 'product.html'
+        if(this.document.title=='Home')
+        window.location.href = '/pages/product.html?id=${productId}'
+        if(this.document.title=='Shop')
+        window.location.href = 'product.html?id=${productId}' // replace it by `` to mak the product id be displayed
     })
 })
 
+
+
+
+
+
+
+// logic for dynamically adding content to the product.html starts here. 
 
