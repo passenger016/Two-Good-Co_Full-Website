@@ -561,7 +561,9 @@ const productsList = [
         id: 0,
         name: 'change the course cookbook',
         price: '$45',
-        thumbnailImage: '../images/iloveimg-compressed/product image 0.png'
+        thumbnailImage: '../images/iloveimg-compressed/product image 0.png',
+        bgColor: '#f5e8d8',
+        color: '#e6622b',
     },
     {
         id: 1,
@@ -569,7 +571,9 @@ const productsList = [
         price: '$95',
         thumbnailImage: '../images/iloveimg-compressed/product image 1.png',
         info1: 'At Two Good Co, we believe that food is more than food…we believe that food is a universal love language, with the power to change the course of someones life.',
-        info2: 'Our Change The Course Cookbook features shorter recipes, simpler ingredients and adaptable techniques, designed to help you achieve goodness with less, while our 100% cotton twill apron looks good and works hard for anyone serving up Good Food and Good Times.'
+        info2: 'Our Change The Course Cookbook features shorter recipes, simpler ingredients and adaptable techniques, designed to help you achieve goodness with less, while our 100% cotton twill apron looks good and works hard for anyone serving up Good Food and Good Times.',
+        bgColor: '#f5e8d8',
+        color: '#e6622b',
     },
     {
         id: 2,
@@ -579,6 +583,8 @@ const productsList = [
         info1: 'Enhance your holiday gifting with our exquisite set of six beautifully packaged Good Feels Crackers.',
         info2: 'With each Good Feels Cracker, you gift a nutritious, delicious dinner cooked with love to women and their children taking refuge in a shelter…as well as receive a voucher for a free scoop of Messina gelato (valid until 31 Dec 2024).',
         extrainfo: 'Pack of 6 Crackers.',
+        bgColor: '#e6e6e6',
+        color: '#000000',
     },
     {
         id: 3,
@@ -621,4 +627,10 @@ if (urlParams.get('id')) {
     document.querySelector('.product--info1').textContent = findProduct.info1;
     document.querySelector('.product--info2').textContent = findProduct.info2;
     document.querySelector('.extra--info').textContent = findProduct.extrainfo;
+    document.querySelector('.product--bg-color').style.backgroundColor = findProduct.bgColor;
+    // document.querySelector('.product--color').style.color = findProduct.color;
+    const productColor = document.querySelectorAll('.product--color');
+    productColor.forEach(product => {
+        product.style.color = findProduct.color;
+    })
 }

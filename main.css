@@ -1121,12 +1121,12 @@ body:hover>.cursor {
     padding: 2rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
     height: 100%;
     background-color: black;
-    gap: 5rem;
+    gap: 3rem;
 }
 
 .featured_product_img-container {
@@ -1175,12 +1175,12 @@ body:hover>.cursor {
     padding: 2rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
     height: 100%;
     background-color: black;
-    gap: 5rem;
+    gap: 3rem;
 }
 
 .shop_second-section_quote {
