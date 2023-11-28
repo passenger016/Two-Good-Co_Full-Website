@@ -4,7 +4,8 @@ const secondaryNav = document.querySelector(".secondary-navbar");
 const logo = document.querySelector(".logo");
 const cartBtn = document.querySelector('.cart-btn');
 const cartCard = document.querySelector('.cart-expanded');
-const backToMenuBtn = document.querySelector('.back-to-menu-btn')
+const backToMenuBtn = document.querySelector('.back-to-menu-btn');
+const products = document.querySelectorAll('.product--card');
 let navState = false
 let windowLoaded = false;
 
@@ -525,3 +526,16 @@ window.addEventListener('scroll', function () {
 // for (let i = 0; i < circularSpan.length; i++) {
 //     circularSpan[i].style.transform = "rotate(" + i * 10 + "deg)"
 // }
+
+
+
+
+// listening to click events on each product 
+products.forEach((product) => {
+    product.addEventListener('click', () => {
+        console.log(`product was clicked`);
+        window.location.href = 'product.html'
+    })
+})
+
+
