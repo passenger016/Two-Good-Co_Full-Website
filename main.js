@@ -657,7 +657,8 @@ if (urlParams.get('id')) {
     document.querySelector('.product--info2').textContent = findProduct.info2;
     document.querySelector('.extra--info').textContent = findProduct.extrainfo;
     document.querySelector('.product--bg-color').style.backgroundColor = findProduct.bgColor;
-    // document.querySelector('.product--color').style.color = findProduct.color;
+
+
     const productColor = document.querySelectorAll('.product--color');
     productColor.forEach(product => {
         product.style.color = findProduct.color;
@@ -665,4 +666,34 @@ if (urlParams.get('id')) {
     document.querySelector('.product--btn-color').style.backgroundColor = findProduct.color;
     document.querySelector('.product_first-section_inner-container').style.borderBottom = `1px solid ${findProduct.color}`;
     document.querySelector('.product--name').style.color = findProduct.color
+
+    // taking the adding and substract buttons as variables
+    productAddBtn = document.querySelector('.product_first-section_first-container_btn_counter--add');
+    productSubsBtn = document.querySelector('.product_first-section_first-container_btn_counter--substract');
+    productAmountText = document.querySelector('.product_first-section_first-container_btn_counter');
+    let productAmount = 1;
+    
+
+    // listening to the click  events on the add button or the substract button to add or substract the product number
+    productAddBtn.addEventListener('click', () => {
+
+        productAmount = productAmount + 1;
+        productAmountText.textContent = `${productAmount}`;
+    })
+
+    productSubsBtn.addEventListener('click', () => {
+        if ((productAmountText.textContent) != '1') {
+            productAmount = productAmount - 1;
+            productAmountText.textContent = `${productAmount}`;
+        }
+    })
+
+
+
+
+
+
+
+
+
 }
