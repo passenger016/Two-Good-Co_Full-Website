@@ -1378,7 +1378,7 @@ body:hover>.cursor {
 }
 
 .product_first-section_third-container_row_block1 {
-    width: 20%;
+    width: max-content;
     height: 100%;
     font-family: var(--secondary-font-family);
     text-transform: uppercase;

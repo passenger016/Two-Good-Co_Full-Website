@@ -555,13 +555,21 @@ products.forEach((product, i) => {
 
 
 // logic for dynamically adding content to the product.html starts here. 
+// info1 and info2 are for paragraph 1 and 2 respectively for each product.
+// extrainfo stands for the 'the nitty gritty' part of the description of the product.
+// the color is to for the text and the button color for respective porduct.
+// the bgColor is to set the background color of the respective product.
 
+// additional notes, make an ingredients property for each object and if that paragraph exists then add it otheriwse no need to add it.
 const productsList = [
     {
         id: 0,
         name: 'change the course cookbook',
         price: '$45',
         thumbnailImage: '../images/iloveimg-compressed/product image 0.png',
+        info1: 'In our third cookbook, we pay homage to our origins; our core belief that having less time or money should never mean less love and nourishment. That good food prepared with care is a universal act of love - and self love - with the power to change the course of someones life.',
+        info2: 'The recipes within CHANGE THE COURSE are shorter, the ingredients are simpler, and the techniques more adaptable...all designed to help you achieve the same goodness with less.',
+        extrainfo: 'Hardcover, 214 pages, 100+ Recipes.',
         bgColor: '#f5e8d8',
         color: '#e6622b',
     },
@@ -588,15 +596,24 @@ const productsList = [
     },
     {
         id: 3,
-        name: 'hunter x too good limited edition candle',
+        name: 'HUNTER X TWO GOOD CANDLE - STRAWBERRY GUM + PEPPERBERRY',
         price: '$49',
-        thumbnailImage: '../images/iloveimg-compressed/product image 3.png'
+        thumbnailImage: '../images/iloveimg-compressed/product image 3.png',
+        info1: 'Inspired by Two Goods exquisite Strawberry Gum & Pepperberry Curing Salt, this collaboration between Hunter Candles and Two Good Co offers a limited edition candle that embodies the unique flavor profile and olfactory expression of the culinary masterpiece.',
+        info2: 'Surrender to the enchanting aroma of sweet strawberry gum notes blending harmoniously with the warmth of pepperberry, creating a captivating and inviting ambiance.',
+        extrainfo: 'Burning hours: 45+. Biodegradable soy wax, made using pure soy beans; free from pesticides, palm oil, petroleum and GMOs. Hand-poured in Newtown, Australia. Always store candle in a cool, dry place below 25C and away from direct sunlight.',
+        bgColor: '#fdf4f0',
+        color: '#625954',
+
     },
     {
         id: 4,
         name: 'the good old glaze kit',
         price: '$120',
-        thumbnailImage: '../images/iloveimg-compressed/product image 4.png'
+        thumbnailImage: '../images/iloveimg-compressed/product image 4.png',
+        info1: 'Cookbooks with dog-eared recipe pages; hands wiped clean on trusty aprons; deft hands brushing vibrant concoctions onto steaming hams...',
+        info2: '',
+        extrainfo: '',
     },
     {
         id: 10,
@@ -608,6 +625,18 @@ const productsList = [
         id: 6,
         name: '',
         price: '',
+    },
+    {
+        id: 7,
+        name: 'NATIVE SPICED DUKKAH',
+        price: '$18',
+        thumbnailImage: '../images/iloveimg-compressed/product image 7.png',
+        info1: 'Crunchy. Tasty. Salty. Spicy.',
+        info2: 'Sprinkle it on your eggs or sliced avo for brekkie, scatter on top of your soup, whisk into a salad dressing or crust your fish or chicken before grilling, or add as a dunking option alongside your bread, olive oil and Blak Cede Citrus Salt.',
+        extrainfo: '100g',
+        bgColor: '#e8f4ee',
+        color: '#678275',
+
     }
 ]
 
@@ -634,5 +663,6 @@ if (urlParams.get('id')) {
         product.style.color = findProduct.color;
     })
     document.querySelector('.product--btn-color').style.backgroundColor = findProduct.color;
-    document.querySelector('.product_first-section_inner-container').style.borderBottom = `1px solid ${findProduct.color}`
+    document.querySelector('.product_first-section_inner-container').style.borderBottom = `1px solid ${findProduct.color}`;
+    document.querySelector('.product--name').style.color = findProduct.color
 }
