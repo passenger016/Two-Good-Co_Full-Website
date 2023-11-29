@@ -44,7 +44,7 @@ window.addEventListener('mousemove', (e) => {
     const y = e.clientY - cursor.offsetHeight / 2;
     let interactable = e.target.closest(".interactable");
     const interacting = interactable !== null; // boolean that returns true if interacting else false
-    console.log(`interacting: ${interacting}`);
+    // console.log(`interacting: ${interacting}`);
 
 
     if (interacting) {
@@ -66,7 +66,7 @@ let animateTrailer = (e, interacting) => {
     const x = e.clientX - cursor.offsetWidth / 2;
     const y = e.clientY - cursor.offsetHeight / 2;
 
-    console.log(`${x}px,${y}px`)
+    // console.log(`${x}px,${y}px`)
 
 
     // make the mouse trailer lag a bit behind the cursor
@@ -500,9 +500,9 @@ function addScrollingAnimation() {
 // Add an event listener to the window for the scroll event
 window.addEventListener('scroll', function () {
     // Check if the vertical scroll position is greater than 0
-    console.log(window.scrollY)
+    // console.log(window.scrollY)
     if (window.scrollY > 0) {
-        console.log('Window has been scrolled.');
+        // console.log('Window has been scrolled.');
         gsap.to('.primary-navbar_link', {
             opacity: 0,
         })
@@ -645,7 +645,10 @@ const urlParams = new URLSearchParams(window.location.search);
 
 if (urlParams.get('id')) {
     console.log('we are on the product page');
+
+    // grabbing thr product's id to change it's information
     const productId = parseInt(urlParams.get('id'));
+    // looking for the product by it's id in the array or objects named 'productList'
     const findProduct = productsList.find(product => product.id === productId);
     console.log(`${findProduct.name}`); // printing the name of thr product to check if it's working properly
     document.querySelector('.product--price').textContent = findProduct.price;
@@ -671,8 +674,8 @@ if (urlParams.get('id')) {
     productAddBtn = document.querySelector('.product_first-section_first-container_btn_counter--add');
     productSubsBtn = document.querySelector('.product_first-section_first-container_btn_counter--substract');
     productAmountText = document.querySelector('.product_first-section_first-container_btn_counter');
-    let productAmount = 1;
-    
+    let productAmount = 1; // initialisng the product number to '1' as it cannot be 0;
+
 
     // listening to the click  events on the add button or the substract button to add or substract the product number
     productAddBtn.addEventListener('click', () => {
@@ -682,14 +685,73 @@ if (urlParams.get('id')) {
     })
 
     productSubsBtn.addEventListener('click', () => {
-        if ((productAmountText.textContent) != '1') {
+        if ((productAmountText.textContent) != '1') { // product number cannot go to zero
             productAmount = productAmount - 1;
             productAmountText.textContent = `${productAmount}`;
         }
     })
 
 
+    // code for dynamicly adding the promotional images of the product
+    let productPromoImgs = document.querySelectorAll('.product--image');
+    let productPromoMainImg = document.querySelector('.product--image-main');
+    let counter = 1;
+    let error = false ;
+    productPromoImgs.forEach(productPromoImg => {
 
+        let error = false;
+
+        // const imgUrl = productPromoImg.src;
+        // Extract the file extension from the URL
+        // const fileExtension = imgUrl.split('.').pop().toLowerCase();
+
+
+
+        // Check the file extension and display a message also add the file path with the required file extension.
+        // if (fileExtension === 'png') {
+        //     console.log('Image has a png extension. adding image for counter' + counter);
+        //     productPromoImg.src = `../images/iloveimg-compressed/${productId}-product promo image ${counter}.png`;
+        //     currentSrc = `../images/iloveimg-compressed/${productId}-product promo image ${counter}.png`
+        // } else if (fileExtension === 'jpeg') {
+        //     console.log('Image has a jpeg extension. adding image for counter' + counter);
+        //     productPromoImg.src = `../images/iloveimg-compressed/${productId}-product promo image ${counter}.jpeg`;
+        //     currentSrc = `../images/iloveimg-compressed/${productId}-product promo image ${counter}.jpeg`
+        // }
+        // else if (fileExtension === 'jpg') {
+        //     console.log('Image has a jpg extension. adding image for counter' + counter);
+        //     productPromoImg.src = `../images/iloveimg-compressed/${productId}-product promo image ${counter}.jpg`;
+        //     currentSrc = `../images/iloveimg-compressed/${productId}-product promo image ${counter}.jpg`
+        // }
+        // else {
+        //     console.log('image has an invalid extention.');
+        // }
+
+        productPromoImg.src = `../images/iloveimg-compressed/${productId}-product promo image ${counter}.png`;
+
+        productPromoImg.onerror = function () {
+            error = true;
+        }
+        if (error) {
+            console.log('erro loading , changing file extension to' + `../images/iloveimg-compressed/${productId}-product promo image ${counter}.jpeg`);
+            productPromoImg.src = `../images/iloveimg-compressed/${productId}-product promo image ${counter}.png`;
+        }
+
+        
+
+
+        counter = counter + 1;
+        
+
+
+    })
+
+    productPromoMainImg.src = `../images/iloveimg-compressed/${productId}-product promo image main 1.png`;
+    productPromoMainImg.src.onerror = function () {
+        error = true;
+    }
+    if(error){
+        productPromoMainImg.src = `../images/iloveimg-compressed/${productId}-product promo image main 1.jpeg`
+    }
 
 
 
