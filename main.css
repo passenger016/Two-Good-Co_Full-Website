@@ -849,7 +849,7 @@ body:hover>.cursor {
 
 
 .third-section {
-    background-color: bisque;
+    /* background-color: bisque; */
 }
 
 .third-section_top-container {
@@ -891,13 +891,13 @@ body:hover>.cursor {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
-    background-color: brown;
+    /* background-color: brown; */
 }
 
 .product {
     /* background-color: red; */
     padding: 2rem;
-    background-color: black;
+    /* background-color: black; */
     width: 100%;
     height: 100%;
     display: flex;

@@ -44,6 +44,7 @@ window.addEventListener('mousemove', (e) => {
     const y = e.clientY - cursor.offsetHeight / 2;
     let interactable = e.target.closest(".interactable");
     const interacting = interactable !== null; // boolean that returns true if interacting else false
+
     // console.log(`interacting: ${interacting}`);
 
 
@@ -69,10 +70,45 @@ let animateTrailer = (e, interacting) => {
     // console.log(`${x}px,${y}px`)
 
 
+    // check if the cursor is interacting with products
+    let productInteractable = e.target.closest('.product--card');
+    const productInteracting = productInteractable !== null // retunrs true if productInteractable is true else false
+
+
+    let cursorScale;
+    let cursorOpcity;
+    let cursorColor;
+
+    if (interacting) {
+        cursorScale = 5;
+        cursorOpcity= 1;
+        cursorColor= '#000000';
+    }
+    else if (productInteracting) {
+        cursorScale = 13;
+        cursorOpcity = 0.08;
+        // const currentProductId = e.target.closest('.product--card').id;
+        // console.log(currentProductId);
+        // const findProduct = productsList.find(product => product.id === currentProductId);
+        // console.log(findProduct);
+        cursorColor = '#f97316'
+        // cursorColor = findProduct.color;
+
+    }
+    else {
+        cursorScale = 1;
+        cursorOpcity = 1;
+        cursorColor= '#000000';
+    }
+
+
+
     // make the mouse trailer lag a bit behind the cursor
     // creating an keyframes object
     const keyframes = {
-        transform: `translate(${x}px , ${y}px) scale(${(interacting) ? 5 : 1})`
+        transform: `translate(${x}px , ${y}px) scale(${cursorScale})`,
+        opacity: `${cursorOpcity}`,
+        backgroundColor: `${cursorColor}`,
     }
 
     cursor.animate(keyframes, {
@@ -790,7 +826,7 @@ gsap.utils.toArray('.animate--card').forEach((card) => {
     });
 });
 
-gsap.from('.animate--category',{
+gsap.from('.animate--category', {
     opacity: 0,
     stagger: 0.2,
     scale: 1.05,
