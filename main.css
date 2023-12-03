@@ -848,9 +848,9 @@ body:hover>.cursor {
 }
 
 
-.third-section {
-    /* background-color: bisque; */
-}
+/* .third-section {
+    background-color: bisque;
+} */
 
 .third-section_top-container {
     display: flex;
@@ -963,6 +963,49 @@ body:hover>.cursor {
 
 
 
+
+
+
+
+
+
+
+
+footer{
+    /* width: 100vw; */
+    height: 100vh;
+    background-color: purple;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 5rem;
+}
+
+.footer_email-container{
+    width: 100%;
+}
+
+.footer_email-input{
+    width: 100%;
+    background-color: white;
+    border: none;
+    height: 8rem;
+    border-bottom: 2px solid black;
+    font-family: var(--primary-font-family);
+    text-transform: uppercase;
+    font-size: 4rem;
+    color: black; 
+}
+
+.footer_email-input{
+    outline: none;
+}
+
+.footer_email-input::placeholder{
+    font-family: var(--primary-font-family);
+    text-transform: uppercase;
+    font-size: 4rem;
+    color: black;   
+}
 
 
 
