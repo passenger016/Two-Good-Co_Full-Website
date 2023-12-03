@@ -696,7 +696,7 @@ if (urlParams.get('id')) {
     let productPromoImgs = document.querySelectorAll('.product--image');
     let productPromoMainImg = document.querySelector('.product--image-main');
     let counter = 1;
-    let error = false ;
+    let error = false;
     productPromoImgs.forEach(productPromoImg => {
 
         let error = false;
@@ -736,11 +736,11 @@ if (urlParams.get('id')) {
             productPromoImg.src = `../images/iloveimg-compressed/${productId}-product promo image ${counter}.png`;
         }
 
-        
+
 
 
         counter = counter + 1;
-        
+
 
 
     })
@@ -749,7 +749,7 @@ if (urlParams.get('id')) {
     productPromoMainImg.src.onerror = function () {
         error = true;
     }
-    if(error){
+    if (error) {
         productPromoMainImg.src = `../images/iloveimg-compressed/${productId}-product promo image main 1.jpeg`
     }
 
@@ -759,3 +759,34 @@ if (urlParams.get('id')) {
 
 
 }
+
+
+gsap.registerPlugin(ScrollTrigger)
+
+// product card animation
+// gsap.from('.product--card',{
+//     opacity: 0,
+//     y: 15,
+//     duration: 0.8,
+//     stagger: 0.1,
+//     delay: 0.2,
+//     scrollTrigger: '.product--card',
+// })
+
+
+// animating the product container and the quote container together
+
+
+gsap.utils.toArray('.animate--card').forEach((card) => {
+    gsap.from(card, {
+        opacity: 0,
+        y: 15,
+        duration: 0.8,
+        delay: 0.05,
+        scrollTrigger: {
+            trigger: card,
+            start: 'top 92%',
+        }
+    });
+});
+
