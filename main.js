@@ -781,12 +781,23 @@ gsap.utils.toArray('.animate--card').forEach((card) => {
     gsap.from(card, {
         opacity: 0,
         y: 15,
-        duration: 0.8,
-        delay: 0.05,
+        duration: 1,
+        delay: 0.15,
         scrollTrigger: {
             trigger: card,
-            start: 'top 92%',
+            start: 'top 94%',
         }
     });
 });
 
+gsap.from('.animate--category',{
+    opacity: 0,
+    stagger: 0.2,
+    scale: 1.05,
+    duration: 0.8,
+    delay: 0.15,
+    scrollTrigger: {
+        trigger: '.second-section_category-container',
+        top: 'top 90%',
+    }
+})
