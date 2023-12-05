@@ -31,7 +31,6 @@ window.addEventListener('load', function () {
     promotionAnimation();
 
 
-
 });
 
 
@@ -81,8 +80,8 @@ let animateTrailer = (e, interacting) => {
 
     if (interacting) {
         cursorScale = 5;
-        cursorOpcity= 1;
-        cursorColor= '#000000';
+        cursorOpcity = 1;
+        cursorColor = '#000000';
     }
     else if (productInteracting) {
         cursorScale = 13;
@@ -98,7 +97,7 @@ let animateTrailer = (e, interacting) => {
     else {
         cursorScale = 1;
         cursorOpcity = 1;
-        cursorColor= '#000000';
+        cursorColor = '#000000';
     }
 
 
@@ -152,6 +151,11 @@ function promotionAnimation() {
     });
 }
 
+
+
+
+
+
 /* listening for click on the 'back to menu' button in the donate section , on click the donate section is hidden while the nav and other contents remain same and the 
 primary list of the nav is made visible and also animated*/
 backToMenuBtn.addEventListener('click', () => {
@@ -173,10 +177,15 @@ backToMenuBtn.addEventListener('click', () => {
 
 
 
-
+// checking the state of the secondary navbar is opened or not opened
 function checkNavOpened() {
-    navState = (secondaryNav.classList.contains("nav--open")) ? true : false;
-    console.log(`secondary nav opened :${navState}`);
+    // navState = (secondaryNav.classList.contains("nav--open")) ? true : false;
+    // console.log(`secondary nav opened :${navState}`);
+
+    if (secondaryNav.classList.contains('nav--open'))
+        navState = true;
+    else
+        navState = false;
 }
 
 
@@ -243,23 +252,26 @@ function openDonateCard() {
 
 
 
+
+
+
+
 menuBtn.addEventListener('click', () => {
 
 
-    // if (navState) {
-    //     console.log('nav already open')
-    //     document.querySelector('.secondary-navbar_primary-list').classList.remove('hidden')
-    //     if (!(document.querySelector('.secondary-navbar_donate-container').classList.contains('hidden')))
-    //         document.querySelector('.secondary-navbar_donate-container').classList.add('hidden')
-    // }
-
-    if (navState) {
-        console.log('nav was closed')
-
-    }
 
     secondaryNav.classList.toggle("nav--open");
-    checkNavOpened();
+    checkNavOpened(); // calling the function to check for the  nav state
+
+    if (navState) {
+        console.log('nav is opened');
+    }
+    else {
+        console.log('nav was closed')
+    }
+
+    if (!(document.querySelector('.secondary-navbar_donate-container').classList.contains('hidden')))
+        document.querySelector('.secondary-navbar_donate-container').classList.add('hidden')
 
     if (document.querySelector('.secondary-navbar_primary-list').classList.contains('hidden'))
         document.querySelector('.secondary-navbar_primary-list').classList.remove('hidden')
@@ -278,6 +290,9 @@ menuBtn.addEventListener('click', () => {
             backgroundColor: '#fff',
             duration: 0.4,
         })
+
+        console.log('cursor color is white')
+
         gsap.to('.primary-navbar_link', {
             color: '#fff',
             duration: 0.4,
@@ -285,6 +300,7 @@ menuBtn.addEventListener('click', () => {
         gsap.to('.logo_icon', {
             filter: 'invert(1)',
         })
+
     }
     else {
         gsap.to(logo, {
@@ -300,6 +316,9 @@ menuBtn.addEventListener('click', () => {
             backgroundColor: '#000',
             duration: 0.4,
         });
+
+        console.log('cursor color is black')
+
         gsap.to('.primary-navbar_link', {
             color: '#000',
             duration: 0.8,
@@ -307,8 +326,8 @@ menuBtn.addEventListener('click', () => {
         gsap.to('.logo_icon', {
             filter: 'invert(0)',
         })
+
     }
-    // document.querySelector('.secondary-navbar_donate-container').classList.add('hidden')
     animateMenu();
 })
 
@@ -320,7 +339,6 @@ let animateMenu = () => {
             secondaryNav.classList.remove('card--open');
             animateCartCard();
         }
-        // cursor.style.mixBlendMode = "difference"
         gsap.to('.secondary-navbar-expanded', {
             height: '100vh',
             duration: 0.3,
@@ -369,7 +387,6 @@ let animateMenu = () => {
 
     }
     else {
-        // cursor.style.mixBlendMode = "none"
         gsap.to('.secondary-navbar-expanded', {
             height: '0',
             duration: 0,
@@ -399,6 +416,21 @@ let animateMenu = () => {
 
 cartBtn.addEventListener('click', () => {
     secondaryNav.classList.toggle('card--open');
+
+
+    // check if the secondary navbar is opened , if opened then close it by removing the 'nav--open' class
+    if (secondaryNav.classList.contains('nav--open')) {
+        secondaryNav.classList.remove('nav--open')
+
+        // animate the navbar closing after the 'nav--open' class has been removed
+        animateMenu()
+        console.log('nav was closed')
+        navState = false; // change the global navstate to false to store that nav section has been closed
+    }
+
+
+
+
     if (secondaryNav.classList.contains("nav--open") || secondaryNav.classList.contains("card--open")) {
         gsap.to(logo, {
             color: '#fff',
@@ -554,19 +586,6 @@ window.addEventListener('scroll', function () {
 
 
 
-
-
-
-// splitting of letters for the circular text
-
-// const circularText = document.querySelector('.circular-text');
-
-// circularText.innerHTML = circularText.textContent.replace(/\S/g, "<span class='circular-span'>$&</span>");
-
-// const circularSpan = document.querySelectorAll('circular-span');
-// for (let i = 0; i < circularSpan.length; i++) {
-//     circularSpan[i].style.transform = "rotate(" + i * 10 + "deg)"
-// }
 
 
 

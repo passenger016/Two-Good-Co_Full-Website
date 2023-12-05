@@ -32,7 +32,6 @@ window.addEventListener('load', function () {
     promotionAnimation();
 
 
-
 });
 
 
@@ -160,20 +159,20 @@ function promotionAnimation() {
 
 /* listening for click on the 'back to menu' button in the donate section , on click the donate section is hidden while the nav and other contents remain same and the 
 primary list of the nav is made visible and also animated*/
-// backToMenuBtn.addEventListener('click', () => {
-//     document.querySelector('.secondary-navbar_donate-container').classList.add('hidden');
-//     document.querySelector('.secondary-navbar_primary-list').classList.remove('hidden');
+backToMenuBtn.addEventListener('click', () => {
+    document.querySelector('.secondary-navbar_donate-container').classList.add('hidden');
+    document.querySelector('.secondary-navbar_primary-list').classList.remove('hidden');
 
-//     // adding the animation for th primary list of the secondary navbar
-//     gsap.from('.secondary-navbar_primary-list_item_text', {
-//         y: 30,
-//         opacity: 0,
-//         duration: 0.3,
-//         delay: 0.3,
-//         stagger: 0.04,
-//         opacity: 0,
-//     })
-// })
+    // adding the animation for th primary list of the secondary navbar
+    gsap.from('.secondary-navbar_primary-list_item_text', {
+        y: 30,
+        opacity: 0,
+        duration: 0.3,
+        delay: 0.3,
+        stagger: 0.04,
+        opacity: 0,
+    })
+})
 
 
 
@@ -261,16 +260,19 @@ function openDonateCard() {
 menuBtn.addEventListener('click', () => {
 
 
-    
+
     secondaryNav.classList.toggle("nav--open");
     checkNavOpened(); // calling the function to check for the  nav state
 
     if (navState) {
         console.log('nav is opened');
     }
-    else{
+    else {
         console.log('nav was closed')
     }
+
+    if (!(document.querySelector('.secondary-navbar_donate-container').classList.contains('hidden')))
+        document.querySelector('.secondary-navbar_donate-container').classList.add('hidden')
 
     if (document.querySelector('.secondary-navbar_primary-list').classList.contains('hidden'))
         document.querySelector('.secondary-navbar_primary-list').classList.remove('hidden')
@@ -289,6 +291,9 @@ menuBtn.addEventListener('click', () => {
             backgroundColor: '#fff',
             duration: 0.4,
         })
+
+        console.log('cursor color is white')
+
         gsap.to('.primary-navbar_link', {
             color: '#fff',
             duration: 0.4,
@@ -296,6 +301,7 @@ menuBtn.addEventListener('click', () => {
         gsap.to('.logo_icon', {
             filter: 'invert(1)',
         })
+
     }
     else {
         gsap.to(logo, {
@@ -311,6 +317,9 @@ menuBtn.addEventListener('click', () => {
             backgroundColor: '#000',
             duration: 0.4,
         });
+
+        console.log('cursor color is black')
+
         gsap.to('.primary-navbar_link', {
             color: '#000',
             duration: 0.8,
@@ -318,8 +327,8 @@ menuBtn.addEventListener('click', () => {
         gsap.to('.logo_icon', {
             filter: 'invert(0)',
         })
+
     }
-    // document.querySelector('.secondary-navbar_donate-container').classList.add('hidden')
     animateMenu();
 })
 
@@ -408,6 +417,21 @@ let animateMenu = () => {
 
 cartBtn.addEventListener('click', () => {
     secondaryNav.classList.toggle('card--open');
+
+
+    // check if the secondary navbar is opened , if opened then close it by removing the 'nav--open' class
+    if (secondaryNav.classList.contains('nav--open')) {
+        secondaryNav.classList.remove('nav--open')
+
+        // animate the navbar closing after the 'nav--open' class has been removed
+        animateMenu()
+        console.log('nav was closed')
+        navState = false; // change the global navstate to false to store that nav section has been closed
+    }
+
+
+
+
     if (secondaryNav.classList.contains("nav--open") || secondaryNav.classList.contains("card--open")) {
         gsap.to(logo, {
             color: '#fff',
@@ -563,19 +587,6 @@ window.addEventListener('scroll', function () {
 
 
 
-
-
-
-// splitting of letters for the circular text
-
-// const circularText = document.querySelector('.circular-text');
-
-// circularText.innerHTML = circularText.textContent.replace(/\S/g, "<span class='circular-span'>$&</span>");
-
-// const circularSpan = document.querySelectorAll('circular-span');
-// for (let i = 0; i < circularSpan.length; i++) {
-//     circularSpan[i].style.transform = "rotate(" + i * 10 + "deg)"
-// }
 
 
 
