@@ -6,13 +6,12 @@ const cartBtn = document.querySelector('.cart-btn');
 const cartCard = document.querySelector('.cart-expanded');
 const backToMenuBtn = document.querySelector('.back-to-menu-btn');
 const products = document.querySelectorAll('.product--card');
+const addToCartBtn = document.querySelector('.add-to-cart-btn');
 let navState = false
 let windowLoaded = false;
+let productAmount;
 
-// window.addEventListener("DOMContentLoaded", () => {
-//     firstHeadingAnimation();
-//     promotionAnimation();
-// })
+
 
 
 
@@ -484,26 +483,58 @@ let animateCartCard = () => {
             secondaryNav.classList.remove('nav--open');
             animateMenu();
         }
-        gsap.to(cartCard, {
-            height: '80vh',
-            duration: 0.3,
-            ease: 'power2.inOut',
-        })
-        gsap.from('.card-expanded-content_top-container', {
-            y: -20,
-            opacity: '0',
-            duration: 0.3,
-            stagger: 0.1,
-            delay: 0.39,
-        })
+        if (cart.length == 0) {
+
+           gsap.to(cartCard, {
+                height: '80vh',
+                duration: 0.3,
+                ease: 'power2.inOut',
+            })
+            gsap.from('.card-expanded-content_top-container', {
+                y: -20,
+                opacity: '0',
+                duration: 0.3,
+                stagger: 0.1,
+                delay: 0.39,
+            })
+        }
+        else {
+            gsap.to(cartCard, {
+                height: '100vh',
+                duration: 0.3,
+                ease: 'power2.inOut',
+            })
+        }
     }
     else {
+
         gsap.to(cartCard, {
             height: '0',
             duration: 0
         })
+
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -729,8 +760,8 @@ if (urlParams.get('id')) {
     productAddBtn = document.querySelector('.product_first-section_first-container_btn_counter--add');
     productSubsBtn = document.querySelector('.product_first-section_first-container_btn_counter--substract');
     productAmountText = document.querySelector('.product_first-section_first-container_btn_counter');
-    let productAmount = 1; // initialisng the product number to '1' as it cannot be 0;
 
+    productAmount = 1; // initialisng the product number to '1' as it cannot be 0 everytime when the product.html page is loaded
 
     // listening to the click  events on the add button or the substract button to add or substract the product number
     productAddBtn.addEventListener('click', () => {
@@ -816,17 +847,9 @@ if (urlParams.get('id')) {
 }
 
 
-gsap.registerPlugin(ScrollTrigger)
 
-// product card animation
-// gsap.from('.product--card',{
-//     opacity: 0,
-//     y: 15,
-//     duration: 0.8,
-//     stagger: 0.1,
-//     delay: 0.2,
-//     scrollTrigger: '.product--card',
-// })
+
+gsap.registerPlugin(ScrollTrigger)
 
 
 // animating the product container and the quote container together
@@ -856,3 +879,41 @@ gsap.from('.animate--category', {
         top: 'top 90%',
     }
 })
+
+
+
+
+
+addToCartBtn.addEventListener('click', () => {
+    console.log('add to cart was clicked');
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = parseInt(urlParams.get('id'));
+
+    console.log('productId is ' + productId);
+
+    const currentProduct = findProduct(productId);
+    addToCart(currentProduct.name, currentProduct.price, productAmount);
+
+})
+
+
+function findProduct(productId) {
+    const currentProduct = productsList.find(product => product.id == productId)
+    return currentProduct;
+}
+
+
+let cart = []; // initialising an empty array to store the objects of each product
+
+function addToCart(productName, productPrice, productAmount) {
+    const newItem = {
+        name: productName,
+        price: productPrice,
+        amount: productAmount,
+    }
+
+    console.log(`product added ,name: ${newItem.name}, price: ${newItem.price}, amount:${newItem.amount}`)
+
+    // pushing the new item to the cart array
+    cart.push(newItem)
+}
