@@ -8,6 +8,7 @@ const backToMenuBtn = document.querySelector('.back-to-menu-btn');
 const products = document.querySelectorAll('.product--card');
 const addToCartBtn = document.querySelector('.add-to-cart-btn');
 const cartItemCard = document.querySelector('.cart-item-expanded');
+let cart = []; // initialising an empty array to store the objects of each product
 
 
 
@@ -930,7 +931,6 @@ function findProduct(productId) {
 }
 
 
-let cart = []; // initialising an empty array to store the objects of each product
 
 function addToCart(productName, productPrice, productAmount) {
     const newItem = {
