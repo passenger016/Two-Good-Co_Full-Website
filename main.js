@@ -7,6 +7,10 @@ const cartCard = document.querySelector('.cart-expanded');
 const backToMenuBtn = document.querySelector('.back-to-menu-btn');
 const products = document.querySelectorAll('.product--card');
 const addToCartBtn = document.querySelector('.add-to-cart-btn');
+const cartItemCard = document.querySelector('.cart-item-expanded');
+
+
+
 let navState = false
 let windowLoaded = false;
 let productAmount;
@@ -499,19 +503,42 @@ let animateCartCard = () => {
             })
         }
         else {
-            gsap.to(cartCard, {
+            gsap.to(cartItemCard, {
                 height: '100vh',
                 duration: 0.3,
                 ease: 'power2.inOut',
+                paddingTop: '15rem',
+                paddingLeft: '1.5rem',
+                paddingRight: '1.5rem',
+            })
+            gsap.from('.cart-item-expanded_inner-container',{
+                opacity: 0,
+                duration: 0.7,
+                delay: 0.34,            
+            })
+            gsap.from('.cart-item-expanded_item',{
+                delay: 0.34,
+                y: 20,
+                duration: 0.6,
+                stagger: 0.1,
             })
         }
     }
     else {
-
+        if(cart.length == 0){
         gsap.to(cartCard, {
             height: '0',
             duration: 0
-        })
+        })}
+        else{
+            gsap.to(cartItemCard, {
+                height: '0',
+                duration: 0,
+                paddingTop: '0',
+                paddingLeft: '0',
+                paddingRight: '0',
+            })
+        }
 
     }
 }
