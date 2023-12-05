@@ -17,6 +17,98 @@ let windowLoaded = false;
 let productAmount;
 
 
+// logic for dynamically adding content to the product.html starts here. 
+// info1 and info2 are for paragraph 1 and 2 respectively for each product.
+// extrainfo stands for the 'the nitty gritty' part of the description of the product.
+// the color is to for the text and the button color for respective porduct.
+// the bgColor is to set the background color of the respective product.
+
+// additional notes, make an ingredients property for each object and if that paragraph exists then add it otheriwse no need to add it.
+const productsList = [
+    {
+        id: 0,
+        name: 'change the course cookbook',
+        price: '$45',
+        thumbnailImage: '../images/iloveimg-compressed/product image 0.png',
+        info1: 'In our third cookbook, we pay homage to our origins; our core belief that having less time or money should never mean less love and nourishment. That good food prepared with care is a universal act of love - and self love - with the power to change the course of someones life.',
+        info2: 'The recipes within CHANGE THE COURSE are shorter, the ingredients are simpler, and the techniques more adaptable...all designed to help you achieve the same goodness with less.',
+        extrainfo: 'Hardcover, 214 pages, 100+ Recipes.',
+        bgColor: '#f5e8d8',
+        color: '#e6622b',
+    },
+    {
+        id: 1,
+        name: 'change the course cook kit',
+        price: '$95',
+        thumbnailImage: '../images/iloveimg-compressed/product image 1.png',
+        info1: 'At Two Good Co, we believe that food is more than food…we believe that food is a universal love language, with the power to change the course of someones life.',
+        info2: 'Our Change The Course Cookbook features shorter recipes, simpler ingredients and adaptable techniques, designed to help you achieve goodness with less, while our 100% cotton twill apron looks good and works hard for anyone serving up Good Food and Good Times.',
+        bgColor: '#f5e8d8',
+        color: '#e6622b',
+    },
+    {
+        id: 2,
+        name: 'the inside scoop good feels crackers set',
+        price: '$50',
+        thumbnailImage: '../images/iloveimg-compressed/product image 2.png',
+        info1: 'Enhance your holiday gifting with our exquisite set of six beautifully packaged Good Feels Crackers.',
+        info2: 'With each Good Feels Cracker, you gift a nutritious, delicious dinner cooked with love to women and their children taking refuge in a shelter…as well as receive a voucher for a free scoop of Messina gelato (valid until 31 Dec 2024).',
+        extrainfo: 'Pack of 6 Crackers.',
+        bgColor: '#e6e6e6',
+        color: '#000000',
+    },
+    {
+        id: 3,
+        name: 'HUNTER X TWO GOOD CANDLE - STRAWBERRY GUM + PEPPERBERRY',
+        price: '$49',
+        thumbnailImage: '../images/iloveimg-compressed/product image 3.png',
+        info1: 'Inspired by Two Goods exquisite Strawberry Gum & Pepperberry Curing Salt, this collaboration between Hunter Candles and Two Good Co offers a limited edition candle that embodies the unique flavor profile and olfactory expression of the culinary masterpiece.',
+        info2: 'Surrender to the enchanting aroma of sweet strawberry gum notes blending harmoniously with the warmth of pepperberry, creating a captivating and inviting ambiance.',
+        extrainfo: 'Burning hours: 45+. Biodegradable soy wax, made using pure soy beans; free from pesticides, palm oil, petroleum and GMOs. Hand-poured in Newtown, Australia. Always store candle in a cool, dry place below 25C and away from direct sunlight.',
+        bgColor: '#fdf4f0',
+        color: '#625954',
+
+    },
+    {
+        id: 4,
+        name: 'the good old glaze kit',
+        price: '$120',
+        thumbnailImage: '../images/iloveimg-compressed/product image 4.png',
+        info1: 'Cookbooks with dog-eared recipe pages; hands wiped clean on trusty aprons; deft hands brushing vibrant concoctions onto steaming hams...',
+        info2: '',
+        extrainfo: '',
+        bgColor: '#f5e8d8',
+        color: '#e6622b',
+    },
+    {
+        id: 10,
+        name: 'two good native tea',
+        price: '$34',
+        thumbnailImage: '../images/iloveimg-compressed/product image 10.png'
+    },
+    {
+        id: 6,
+        name: '',
+        price: '',
+    },
+    {
+        id: 7,
+        name: 'NATIVE SPICED DUKKAH',
+        price: '$18',
+        thumbnailImage: '../images/iloveimg-compressed/product image 7.png',
+        info1: 'Crunchy. Tasty. Salty. Spicy.',
+        info2: 'Sprinkle it on your eggs or sliced avo for brekkie, scatter on top of your soup, whisk into a salad dressing or crust your fish or chicken before grilling, or add as a dunking option alongside your bread, olive oil and Blak Cede Citrus Salt.',
+        extrainfo: '100g',
+        bgColor: '#e8f4ee',
+        color: '#678275',
+
+    }
+]
+
+
+
+
+
 
 
 
@@ -90,12 +182,17 @@ let animateTrailer = (e, interacting) => {
     else if (productInteracting) {
         cursorScale = 13;
         cursorOpcity = 0.08;
-        // const currentProductId = e.target.closest('.product--card').id;
+        let currentProductId = (e.target.closest('.product--card')).id;
+        let currentProduct = findProduct(currentProductId);
+        console.log(currentProduct.name + " ,product id:" + currentProduct.id);
+
+
+
         // console.log(currentProductId);
-        // const findProduct = productsList.find(product => product.id === currentProductId);
+        // let findProduct = productsList.find(product => product.id === currentProductId);
         // console.log(findProduct);
-        cursorColor = '#f97316'
-        // cursorColor = findProduct.color;
+        // cursorColor = '#f97316'
+        cursorColor = currentProduct.color;
 
     }
     else {
@@ -490,7 +587,7 @@ let animateCartCard = () => {
         }
         if (cart.length == 0) {
 
-           gsap.to(cartCard, {
+            gsap.to(cartCard, {
                 height: '80vh',
                 duration: 0.3,
                 ease: 'power2.inOut',
@@ -512,12 +609,12 @@ let animateCartCard = () => {
                 paddingLeft: '1.5rem',
                 paddingRight: '1.5rem',
             })
-            gsap.from('.cart-item-expanded_inner-container',{
+            gsap.from('.cart-item-expanded_inner-container', {
                 opacity: 0,
                 duration: 0.7,
-                delay: 0.34,            
+                delay: 0.34,
             })
-            gsap.from('.cart-item-expanded_item',{
+            gsap.from('.cart-item-expanded_item', {
                 delay: 0.34,
                 y: 20,
                 duration: 0.6,
@@ -526,12 +623,13 @@ let animateCartCard = () => {
         }
     }
     else {
-        if(cart.length == 0){
-        gsap.to(cartCard, {
-            height: '0',
-            duration: 0
-        })}
-        else{
+        if (cart.length == 0) {
+            gsap.to(cartCard, {
+                height: '0',
+                duration: 0
+            })
+        }
+        else {
             gsap.to(cartItemCard, {
                 height: '0',
                 duration: 0,
@@ -668,91 +766,7 @@ products.forEach((product, i) => {
 
 
 
-// logic for dynamically adding content to the product.html starts here. 
-// info1 and info2 are for paragraph 1 and 2 respectively for each product.
-// extrainfo stands for the 'the nitty gritty' part of the description of the product.
-// the color is to for the text and the button color for respective porduct.
-// the bgColor is to set the background color of the respective product.
 
-// additional notes, make an ingredients property for each object and if that paragraph exists then add it otheriwse no need to add it.
-const productsList = [
-    {
-        id: 0,
-        name: 'change the course cookbook',
-        price: '$45',
-        thumbnailImage: '../images/iloveimg-compressed/product image 0.png',
-        info1: 'In our third cookbook, we pay homage to our origins; our core belief that having less time or money should never mean less love and nourishment. That good food prepared with care is a universal act of love - and self love - with the power to change the course of someones life.',
-        info2: 'The recipes within CHANGE THE COURSE are shorter, the ingredients are simpler, and the techniques more adaptable...all designed to help you achieve the same goodness with less.',
-        extrainfo: 'Hardcover, 214 pages, 100+ Recipes.',
-        bgColor: '#f5e8d8',
-        color: '#e6622b',
-    },
-    {
-        id: 1,
-        name: 'change the course cook kit',
-        price: '$95',
-        thumbnailImage: '../images/iloveimg-compressed/product image 1.png',
-        info1: 'At Two Good Co, we believe that food is more than food…we believe that food is a universal love language, with the power to change the course of someones life.',
-        info2: 'Our Change The Course Cookbook features shorter recipes, simpler ingredients and adaptable techniques, designed to help you achieve goodness with less, while our 100% cotton twill apron looks good and works hard for anyone serving up Good Food and Good Times.',
-        bgColor: '#f5e8d8',
-        color: '#e6622b',
-    },
-    {
-        id: 2,
-        name: 'the inside scoop good feels crackers set',
-        price: '$50',
-        thumbnailImage: '../images/iloveimg-compressed/product image 2.png',
-        info1: 'Enhance your holiday gifting with our exquisite set of six beautifully packaged Good Feels Crackers.',
-        info2: 'With each Good Feels Cracker, you gift a nutritious, delicious dinner cooked with love to women and their children taking refuge in a shelter…as well as receive a voucher for a free scoop of Messina gelato (valid until 31 Dec 2024).',
-        extrainfo: 'Pack of 6 Crackers.',
-        bgColor: '#e6e6e6',
-        color: '#000000',
-    },
-    {
-        id: 3,
-        name: 'HUNTER X TWO GOOD CANDLE - STRAWBERRY GUM + PEPPERBERRY',
-        price: '$49',
-        thumbnailImage: '../images/iloveimg-compressed/product image 3.png',
-        info1: 'Inspired by Two Goods exquisite Strawberry Gum & Pepperberry Curing Salt, this collaboration between Hunter Candles and Two Good Co offers a limited edition candle that embodies the unique flavor profile and olfactory expression of the culinary masterpiece.',
-        info2: 'Surrender to the enchanting aroma of sweet strawberry gum notes blending harmoniously with the warmth of pepperberry, creating a captivating and inviting ambiance.',
-        extrainfo: 'Burning hours: 45+. Biodegradable soy wax, made using pure soy beans; free from pesticides, palm oil, petroleum and GMOs. Hand-poured in Newtown, Australia. Always store candle in a cool, dry place below 25C and away from direct sunlight.',
-        bgColor: '#fdf4f0',
-        color: '#625954',
-
-    },
-    {
-        id: 4,
-        name: 'the good old glaze kit',
-        price: '$120',
-        thumbnailImage: '../images/iloveimg-compressed/product image 4.png',
-        info1: 'Cookbooks with dog-eared recipe pages; hands wiped clean on trusty aprons; deft hands brushing vibrant concoctions onto steaming hams...',
-        info2: '',
-        extrainfo: '',
-    },
-    {
-        id: 10,
-        name: 'two good native tea',
-        price: '$34',
-        thumbnailImage: '../images/iloveimg-compressed/product image 10.png'
-    },
-    {
-        id: 6,
-        name: '',
-        price: '',
-    },
-    {
-        id: 7,
-        name: 'NATIVE SPICED DUKKAH',
-        price: '$18',
-        thumbnailImage: '../images/iloveimg-compressed/product image 7.png',
-        info1: 'Crunchy. Tasty. Salty. Spicy.',
-        info2: 'Sprinkle it on your eggs or sliced avo for brekkie, scatter on top of your soup, whisk into a salad dressing or crust your fish or chicken before grilling, or add as a dunking option alongside your bread, olive oil and Blak Cede Citrus Salt.',
-        extrainfo: '100g',
-        bgColor: '#e8f4ee',
-        color: '#678275',
-
-    }
-]
 
 
 const urlParams = new URLSearchParams(window.location.search);
