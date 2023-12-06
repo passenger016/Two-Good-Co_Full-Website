@@ -737,15 +737,66 @@ function deleteFromCart(index) {
     console.log(cartNumber);
 
     // now deletion from the cart array
-    cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart = JSON.parse(localStorage.getItem('cart')) || []; // change the cart content by the newly made array in the local storage.
     console.log(`cart array ${JSON.stringify(cart)}`);
 
 
-    // if (cartNumber == 0) {
-    //     console.log('cart is empty nothing to display');
-    //     secondaryNav.classList.remove('card--open');
-    //     animateCartCard();
-    // }
+    if (cartNumber == 0) {
+        console.log('empty cart closed')
+        gsap.to(cartItemCard, {
+            height: '0',
+            duration: 0,
+            paddingTop: '0',
+            paddingLeft: '0',
+            paddingRight: '0',
+        })
+        if (secondaryNav.classList.contains("nav--open") || secondaryNav.classList.contains("card--open")) {
+            gsap.to(logo, {
+                color: '#fff',
+                duration: 0.4,
+            });
+            gsap.to(secondaryNav, {
+                backgroundColor: '#000',
+                color: '#fff',
+                duration: 0.1,
+            })
+            gsap.to(cursor, {
+                backgroundColor: '#fff',
+                duration: 0.4,
+            })
+            gsap.to('.primary-navbar_link', {
+                color: '#fff',
+                duration: 0.4,
+            })
+            gsap.to('.logo_icon', {
+                filter: 'invert(1)',
+            })
+        }
+        else {
+            gsap.to(logo, {
+                color: '#000',
+                duration: 0.4,
+            });
+            gsap.to(secondaryNav, {
+                backgroundColor: '#fff',
+                color: '#000',
+                duration: 0.3,
+            });
+            gsap.to(cursor, {
+                backgroundColor: '#000',
+                duration: 0.4,
+            });
+            gsap.to('.primary-navbar_link', {
+                color: '#000',
+                duration: 0.8,
+            })
+            gsap.to('.logo_icon', {
+                filter: 'invert(0)',
+            })
+        }
+        animateCartCard();
+    
+    }
 
 }
 
