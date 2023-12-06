@@ -8,13 +8,64 @@ const backToMenuBtn = document.querySelector('.back-to-menu-btn');
 const products = document.querySelectorAll('.product--card');
 const addToCartBtn = document.querySelector('.add-to-cart-btn');
 const cartItemCard = document.querySelector('.cart-item-expanded');
-let cart = []; // initialising an empty array to store the objects of each product
 
+
+let cart = []; // initialising an empty array to store the objects of each product
+let cartNumber;
 
 
 let navState = false
 let windowLoaded = false;
 let productAmount;
+
+
+
+
+// Check if the page is accessed or refreshed
+const navigationType = performance.getEntriesByType("navigation")[0].type;
+
+if (navigationType === 'reload') {
+    console.info('Page accessed by reloading');
+    cartNumber = 0;
+
+    // page is being refreshed so start with a new cart
+    localStorage.removeItem('cart');
+    localStorage.setItem('cartNumber', 0);
+    console.info(`cart number on reload ${cartNumber}`);
+
+} else {
+    cart = JSON.parse(localStorage.getItem('cart')) || []; // if cart exists in JSON then retrive that else just decalre it with an empty array
+    cartNumber = parseInt(localStorage.getItem('cartNumber'));
+
+    let currentCart = getCart();
+
+    console.info(`cart items are ${JSON.stringify(currentCart)} and cart number is ${cartNumber}`);
+
+    setCartListItems();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // logic for dynamically adding content to the product.html starts here. 
@@ -518,7 +569,6 @@ let animateMenu = () => {
 cartBtn.addEventListener('click', () => {
     secondaryNav.classList.toggle('card--open');
 
-
     // check if the secondary navbar is opened , if opened then close it by removing the 'nav--open' class
     if (secondaryNav.classList.contains('nav--open')) {
         secondaryNav.classList.remove('nav--open')
@@ -953,8 +1003,87 @@ function addToCart(productName, productPrice, productAmount) {
         amount: productAmount,
     }
 
-    console.log(`product added ,name: ${newItem.name}, price: ${newItem.price}, amount:${newItem.amount}`)
-
+    console.log(`product added ,name: ${newItem.name}, price: ${newItem.price}, amount:${newItem.amount}`);
     // pushing the new item to the cart array
-    cart.push(newItem)
+    cart.push(newItem);
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    let currentCart = getCart();
+    console.info(currentCart);
+
+
+
+    const cartList = document.querySelector('.cart-item-expanded_item-list');
+
+    const newListItem = document.createElement('li');
+
+    newListItem.classList.add('cart-item-expanded_item');
+    newListItem.innerHTML = `
+    
+    <h2 class="cart-item-expanded_item_name">${newItem.name}</h2>
+                        <span class="cart-item-expanded_item_quantity-container">
+                            <button class="cart-item-expanded_item_quantity_sub">-</button>
+                            <span class="cart-item-expanded_item_quantity">${newItem.amount}</span>
+                            <button class="cart-item-expanded_item_quantity_add">+</button>
+                        </span>
+                        <div class="cart-item-expanded_item_end-container"
+                            style="display: flex; align-items: center; width: 8%; justify-content: space-between;">
+                            <span class="cart-item-expanded_item_price">${newItem.price}</span>
+                            <i data-feather="x" class="cart-btn"
+                                style="stroke-width: 2; width: 2rem; color: #6d6d6d;"></i>
+                        </div>
+
+    `
+
+    cartList.appendChild(newListItem);
+    cartNumber += 1;
+    console.info(cartNumber);
+    localStorage.setItem('cartNumber', cartNumber);
+
+}
+
+function getCart() {
+
+    return JSON.parse(localStorage.getItem('cart')) || [];
+
+}
+
+function setCartListItems() {
+
+    let currentCart = getCart();
+
+    currentCart.forEach((item, index) => {
+        console.info(item.name);
+
+
+        const cartList = document.querySelector('.cart-item-expanded_item-list');
+
+        const newListItem = document.createElement('li');
+
+        newListItem.classList.add('cart-item-expanded_item');
+        newListItem.innerHTML = `
+    
+    <h2 class="cart-item-expanded_item_name">${item.name}</h2>
+                        <span class="cart-item-expanded_item_quantity-container">
+                            <button class="cart-item-expanded_item_quantity_sub">-</button>
+                            <span class="cart-item-expanded_item_quantity">${item.amount}</span>
+                            <button class="cart-item-expanded_item_quantity_add">+</button>
+                        </span>
+                        <div class="cart-item-expanded_item_end-container"
+                            style="display: flex; align-items: center; width: 8%; justify-content: space-between;">
+                            <span class="cart-item-expanded_item_price">${item.price}</span>
+                            <i data-feather="x" class="cart-btn"
+                                style="stroke-width: 2; width: 2rem; color: #6d6d6d;"></i>
+                        </div>
+
+    `
+
+        cartList.appendChild(newListItem);
+
+
+
+    })
+
+
 }
