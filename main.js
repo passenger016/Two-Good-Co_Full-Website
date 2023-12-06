@@ -8,6 +8,8 @@ const backToMenuBtn = document.querySelector('.back-to-menu-btn');
 const products = document.querySelectorAll('.product--card');
 const addToCartBtn = document.querySelector('.add-to-cart-btn');
 const cartItemCard = document.querySelector('.cart-item-expanded');
+let removeItems;
+
 
 
 let cart = []; // initialising an empty array to store the objects of each product
@@ -630,6 +632,9 @@ cartBtn.addEventListener('click', () => {
     animateCartCard();
 })
 
+
+
+
 let animateCartCard = () => {
     if (secondaryNav.classList.contains('card--open')) {
         if (secondaryNav.classList.contains('nav--open')) {
@@ -671,6 +676,13 @@ let animateCartCard = () => {
                 duration: 0.6,
                 stagger: 0.1,
             })
+
+            // chexking for the number of items present in the cart to listen to their removal event if clicked on the remove-item-btn.
+            removeItemBtns = document.querySelectorAll('.remove-item-btn');
+            // removeItem = document.querySelectorAll('.cart-item-expanded_item');
+            console.info('number of items that can be removed ' + removeItemBtns.length);
+            console.info(JSON.stringify(cart));
+            listenToRemoveItems(removeItemBtns);
         }
     }
     else {
@@ -692,6 +704,52 @@ let animateCartCard = () => {
 
     }
 }
+
+
+function listenToRemoveItems(removeItemBtns) {
+
+    removeItemBtns.forEach((btn, index) => {
+        btn.addEventListener('click', () => {
+            console.log(`${btn} clicked at index: ${index}`);
+            console.log(`${JSON.stringify(cart[index])} was removed`);
+            const currentListItem = btn.closest('li'); // get the closest <li> element to the button that was clicked
+
+            // get the parent element to that li tag
+            const parentItem = currentListItem.parentNode;
+            console.log(parentItem);
+
+            parentItem.removeChild(currentListItem);
+
+            deleteFromCart(index);
+        })
+    })
+}
+
+function deleteFromCart(index) {
+
+    // deletion from the cart stored in the local storage
+    let currentCart = JSON.parse(localStorage.getItem('cart')) || 0;
+    currentCart.splice(index, 1); // the splice function will modify the original array starting from the value of the index and delete 1 item;
+    localStorage.setItem('cart', JSON.stringify(currentCart));
+
+    console.log(currentCart);
+    cartNumber -= 1;
+    console.log(cartNumber);
+
+    // now deletion from the cart array
+    cart = JSON.parse(localStorage.getItem('cart')) || [];
+    console.log(`cart array ${JSON.stringify(cart)}`);
+
+
+    // if (cartNumber == 0) {
+    //     console.log('cart is empty nothing to display');
+    //     secondaryNav.classList.remove('card--open');
+    //     animateCartCard();
+    // }
+
+}
+
+
 
 
 
@@ -1029,8 +1087,9 @@ function addToCart(productName, productPrice, productAmount) {
                         <div class="cart-item-expanded_item_end-container"
                             style="display: flex; align-items: center; width: 8%; justify-content: space-between;">
                             <span class="cart-item-expanded_item_price">${newItem.price}</span>
+                            <div class="remove-item-btn">
                             <i data-feather="x" class="cart-btn"
-                                style="stroke-width: 2; width: 2rem; color: #6d6d6d;"></i>
+                                style="stroke-width: 2; width: 2rem; color: #6d6d6d;"></i></div>
                         </div>
 
     `
@@ -1076,8 +1135,9 @@ function setCartListItems() {
                         <div class="cart-item-expanded_item_end-container"
                             style="display: flex; align-items: center; width: 8%; justify-content: space-between;">
                             <span class="cart-item-expanded_item_price">${item.price}</span>
+                            <div class="remove-item-btn">
                             <i data-feather="x" class="cart-btn"
-                                style="stroke-width: 2; width: 2rem; color: #6d6d6d;"></i>
+                                style="stroke-width: 2; width: 2rem; color: #6d6d6d;"></i></div>
                         </div>
 
     `
@@ -1095,3 +1155,9 @@ function setCartListItems() {
 
 
 // listenng to the click event on the cross option on the items in the item list of the cart to remove a specific item
+// removeItems.forEach((item, index) => {
+//     item.addEventListener('click', () => {
+//         console.info(`${cart[index]} was removed`);
+//     })
+// })
+
