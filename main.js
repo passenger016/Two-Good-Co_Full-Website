@@ -21,6 +21,7 @@ let productAmount;
 
 
 
+
 // Check if the page is accessed or refreshed
 const navigationType = performance.getEntriesByType("navigation")[0].type;
 
@@ -1006,7 +1007,6 @@ function addToCart(productName, productPrice, productAmount) {
     console.log(`product added ,name: ${newItem.name}, price: ${newItem.price}, amount:${newItem.amount}`);
     // pushing the new item to the cart array
     cart.push(newItem);
-
     localStorage.setItem('cart', JSON.stringify(cart));
 
     let currentCart = getCart();
@@ -1017,7 +1017,6 @@ function addToCart(productName, productPrice, productAmount) {
     const cartList = document.querySelector('.cart-item-expanded_item-list');
 
     const newListItem = document.createElement('li');
-
     newListItem.classList.add('cart-item-expanded_item');
     newListItem.innerHTML = `
     
@@ -1037,9 +1036,17 @@ function addToCart(productName, productPrice, productAmount) {
     `
 
     cartList.appendChild(newListItem);
+
+    // function to replace the 'i' tags with feather icons
+    feather.replace();
+
+
+
     cartNumber += 1;
     console.info(cartNumber);
     localStorage.setItem('cartNumber', cartNumber);
+
+
 
 }
 
@@ -1052,15 +1059,11 @@ function getCart() {
 function setCartListItems() {
 
     let currentCart = getCart();
-
     currentCart.forEach((item, index) => {
+
         console.info(item.name);
-
-
         const cartList = document.querySelector('.cart-item-expanded_item-list');
-
         const newListItem = document.createElement('li');
-
         newListItem.classList.add('cart-item-expanded_item');
         newListItem.innerHTML = `
     
@@ -1080,6 +1083,8 @@ function setCartListItems() {
     `
 
         cartList.appendChild(newListItem);
+        // function to replace the 'i' tags with feather icons
+        feather.replace();
 
 
 
@@ -1087,3 +1092,6 @@ function setCartListItems() {
 
 
 }
+
+
+// listenng to the click event on the cross option on the items in the item list of the cart to remove a specific item
