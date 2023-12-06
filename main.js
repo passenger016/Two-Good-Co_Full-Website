@@ -8,7 +8,9 @@ const backToMenuBtn = document.querySelector('.back-to-menu-btn');
 const products = document.querySelectorAll('.product--card');
 const addToCartBtn = document.querySelector('.add-to-cart-btn');
 const cartItemCard = document.querySelector('.cart-item-expanded');
-let removeItems;
+const cartTotalAmtContainer = document.querySelector('.cart-item-expanded_details-container_right_right-container_text');
+
+let removeItemBtns;
 
 
 
@@ -677,7 +679,7 @@ let animateCartCard = () => {
                 stagger: 0.1,
             })
 
-            // chexking for the number of items present in the cart to listen to their removal event if clicked on the remove-item-btn.
+            // checking for the number of items present in the cart to listen to their removal event if clicked on the remove-item-btn.
             removeItemBtns = document.querySelectorAll('.remove-item-btn');
             // removeItem = document.querySelectorAll('.cart-item-expanded_item');
             console.info('number of items that can be removed ' + removeItemBtns.length);
@@ -735,6 +737,7 @@ function deleteFromCart(index) {
     console.log(currentCart);
     cartNumber -= 1;
     console.log(cartNumber);
+    localStorage.setItem('cartNumber', 0);
 
     // now deletion from the cart array
     cart = JSON.parse(localStorage.getItem('cart')) || []; // change the cart content by the newly made array in the local storage.
@@ -795,7 +798,7 @@ function deleteFromCart(index) {
             })
         }
         animateCartCard();
-    
+
     }
 
 }
