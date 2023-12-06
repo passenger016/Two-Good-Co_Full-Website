@@ -468,6 +468,12 @@ body:hover>.cursor {
 }
 
 
+/* hiding the scrollbar */
+.cart-item-expanded::-webkit-scrollbar{
+    display: none;
+}
+
+
 .cart-item-expanded_inner-container{
     width: 100%;
     height: 100%;
