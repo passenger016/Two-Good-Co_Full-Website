@@ -681,10 +681,11 @@ let animateCartCard = () => {
 
             // checking for the number of items present in the cart to listen to their removal event if clicked on the remove-item-btn.
             removeItemBtns = document.querySelectorAll('.remove-item-btn');
-            // removeItem = document.querySelectorAll('.cart-item-expanded_item');
             console.info('number of items that can be removed ' + removeItemBtns.length);
             console.info(JSON.stringify(cart));
             listenToRemoveItems(removeItemBtns);
+            const currentCartListItems = document.querySelectorAll('.cart-item-expanded_item');
+            listenToCartItemsAmount(currentCartListItems);
         }
     }
     else {
@@ -706,6 +707,71 @@ let animateCartCard = () => {
 
     }
 }
+
+
+function listenToCartItemsAmount(currentCartListItems) {
+    console.log(`current cart elements whose amount can be increased are ${currentCartListItems}`);
+
+    currentCartListItems.forEach((item, index) => {
+        console.log(item);
+
+        // get each item's add and sub button and listen to clicks on them
+        const productAddBtnCart = item.querySelector('.cart-item-expanded_item_quantity_add');
+        const productSubsBtnCart = item.querySelector('.cart-item-expanded_item_quantity_sub');
+
+        // parsing the value of the textContent to convert it into integer for calculation
+        let quantity = parseInt(item.querySelector('.cart-item-expanded_item_quantity').textContent);
+
+
+        productAddBtnCart.addEventListener('click', () => {
+            console.log(`${item.querySelector('h2').textContent} was increased`);
+
+            // update the quanity in the variable    
+            quantity += 1;
+            console.log(`new quanity is ${quantity}`);
+            // update the text content in the DOM
+            item.querySelector('.cart-item-expanded_item_quantity').textContent = quantity;    
+
+        })
+        productSubsBtnCart.addEventListener('click', () => {
+            console.log(`${item.querySelector('h2').textContent} was decreased`);
+
+
+            // update the quanity in the variable
+            if (quantity != 1)
+                quantity -= 1;
+            console.log(`new quanity is ${quantity}`);
+            // update the text content in the DOM
+            item.querySelector('.cart-item-expanded_item_quantity').textContent = quantity;
+        })
+
+
+        /* NO PROPER WAY OF UPDATING THE CART QUANITY IN THE LOCAL STORAGE HAS BEEN CODED YET */
+
+
+
+        // let currentCart = getCart();
+        // currentCart = JSON.stringify(currentCart[index]);
+
+        // currentCart[index].amount = quantity
+        // localStorage.setItem('cart', currentCart);
+
+
+
+        // console.log(`new cart ${currentCart}`)
+
+        // currentCart[index].quantity = quantity;
+        // localStorage.setItem('cart', currentCart);
+        // console.log(`updated current cart ${currentCart}`);
+
+
+    })
+
+
+}
+
+
+
 
 
 function listenToRemoveItems(removeItemBtns) {
@@ -1208,10 +1274,4 @@ function setCartListItems() {
 }
 
 
-// listenng to the click event on the cross option on the items in the item list of the cart to remove a specific item
-// removeItems.forEach((item, index) => {
-//     item.addEventListener('click', () => {
-//         console.info(`${cart[index]} was removed`);
-//     })
-// })
 
