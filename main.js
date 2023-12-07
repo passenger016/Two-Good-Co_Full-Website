@@ -734,6 +734,7 @@ function listenToCartItemsAmount(currentCartListItems) {
             cart[index].amount = quantity;
             console.log(`upadted cart ${JSON.stringify(cart)}`);
             localStorage.setItem('cart', JSON.stringify(cart));
+            calculateTotalAmount();
 
         })
         productSubsBtnCart.addEventListener('click', () => {
@@ -749,6 +750,7 @@ function listenToCartItemsAmount(currentCartListItems) {
             cart[index].amount = quantity;
             console.log(`upadted cart ${JSON.stringify(cart)}`);
             localStorage.setItem('cart', JSON.stringify(cart));
+            calculateTotalAmount();
         })
 
 
@@ -795,6 +797,10 @@ function calculateTotalAmount() {
     })
 
     console.log(`total amount to be paid is ${totalAmount}`);
+
+
+    // place the total amount int the DOM element
+    document.querySelector('.final-amount').textContent = `$`+ totalAmount;
 }
 
 
