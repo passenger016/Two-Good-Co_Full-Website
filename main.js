@@ -730,7 +730,10 @@ function listenToCartItemsAmount(currentCartListItems) {
             quantity += 1;
             console.log(`new quanity is ${quantity}`);
             // update the text content in the DOM
-            item.querySelector('.cart-item-expanded_item_quantity').textContent = quantity;    
+            item.querySelector('.cart-item-expanded_item_quantity').textContent = quantity;
+            cart[index].amount = quantity;
+            console.log(`upadted cart ${JSON.stringify(cart)}`);
+            localStorage.setItem('cart', JSON.stringify(cart));
 
         })
         productSubsBtnCart.addEventListener('click', () => {
@@ -743,6 +746,9 @@ function listenToCartItemsAmount(currentCartListItems) {
             console.log(`new quanity is ${quantity}`);
             // update the text content in the DOM
             item.querySelector('.cart-item-expanded_item_quantity').textContent = quantity;
+            cart[index].amount = quantity;
+            console.log(`upadted cart ${JSON.stringify(cart)}`);
+            localStorage.setItem('cart', JSON.stringify(cart));
         })
 
 
@@ -750,26 +756,46 @@ function listenToCartItemsAmount(currentCartListItems) {
 
 
 
-        // let currentCart = getCart();
+
+
         // currentCart = JSON.stringify(currentCart[index]);
 
         // currentCart[index].amount = quantity
         // localStorage.setItem('cart', currentCart);
-
-
-
         // console.log(`new cart ${currentCart}`)
-
         // currentCart[index].quantity = quantity;
         // localStorage.setItem('cart', currentCart);
         // console.log(`updated current cart ${currentCart}`);
 
+
+
+        calculateTotalAmount();
 
     })
 
 
 }
 
+function calculateTotalAmount() {
+    console.log(cart);
+    let totalAmount = 0;
+
+
+
+    cart.forEach(item => {
+
+        console.log(`${(item.price.substring(1))} and ${item.amount}`);
+
+        totalAmount = totalAmount + (parseInt(item.price.substring(1), 10) * (item.amount));
+
+        if (isNaN(item.price.substring(1)) || isNaN(item.amount)) {
+            console.log(`it is nan`)
+        }
+
+    })
+
+    console.log(`total amount to be paid is ${totalAmount}`);
+}
 
 
 
