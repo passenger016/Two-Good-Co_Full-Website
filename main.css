@@ -1358,17 +1358,19 @@ footer {
 
 .shop_first-section_heading {
     text-transform: uppercase;
-    font-size: 10vw;
+    font-size: 12vw;
     font-family: var(--primary-font-family);
     font-weight: 800;
     line-height: 80%;
     letter-spacing: 0rem;
+    text-align: left;
 }
 
 .shop_first-section_heading-interior-container-first {
     overflow: hidden;
     /* background-color: beige; */
     padding: 1rem;
+    width: 100%;
 }
 
 
@@ -1554,6 +1556,10 @@ footer {
         height: 50vh;
     }
 
+    .shop_first-section_heading{
+        font-size: 15.8vw;
+    }
+
     .shop_first-section_para-container {
         margin: 0;
         width: 100%;
@@ -1562,9 +1568,17 @@ footer {
 
     .shop_second-section_product-container {
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* autofills the number of columns that could be down with a minimum value of 200px or 1fr whichever one can be fit in the size of the screen*/
-        gap: 2rem;
     }
 
+    .shop_first-section_heading-container {
+        gap: 0;
+        height: max-content;
+        
+    }
+
+    .shop_first-section_heading-interior-container-second {
+        height: max-content;
+    }    
 
 }
 
