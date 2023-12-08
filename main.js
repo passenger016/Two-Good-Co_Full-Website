@@ -351,14 +351,32 @@ function openDonateCard() {
         console.log('nav already open')
         console.log(`secondary nav state: ${navState}`);
         document.querySelector('.secondary-navbar_primary-list').classList.add('hidden')
-        if (document.querySelector('.secondary-navbar_donate-container').classList.contains('hidden'))
+        if (document.querySelector('.secondary-navbar_donate-container').classList.contains('hidden')) {
             document.querySelector('.secondary-navbar_donate-container').classList.remove('hidden')
+
+            // if navis lready open it will hapen instantly
+           gsap.from('.secondary-navbar_donate-container', {
+                delay: 0,
+                opacity: 0,
+                y: 20,
+                duration: 0.2,
+            })
+        }
     }
     else {
         document.querySelector('.secondary-navbar_donate-container').classList.remove('hidden')
         secondaryNav.classList.toggle("nav--open");
         checkNavOpened();
         document.querySelector('.secondary-navbar_primary-list').classList.add('hidden')
+
+        // if nav has tobe opened it will happn after a delay
+        gsap.from('.secondary-navbar_donate-container', {
+            delay: 0.5,
+            opacity: 0,
+            y: 20,
+            duration: 0.2,
+        })
+
         if (secondaryNav.classList.contains("nav--open") || secondaryNav.classList.contains("card--open")) {
             gsap.to(logo, {
                 color: '#fff',
@@ -800,7 +818,7 @@ function calculateTotalAmount() {
 
 
     // place the total amount int the DOM element
-    document.querySelector('.final-amount').textContent = `$`+ totalAmount;
+    document.querySelector('.final-amount').textContent = `$` + totalAmount;
 }
 
 
