@@ -1401,17 +1401,7 @@ footer {
     /* margin on the end of the block */
 }
 
-/* @media (max-width:500px){
-    .shop_first-section {
-        flex-direction: column;
-        gap: 2rem;
-        height: 50vh;
-    }
-    .shop_first-section_para-container{
-        margin: 0;
-        width: 100%;
-    }
-} */
+
 
 
 
@@ -1554,6 +1544,35 @@ footer {
     color: black;
     text-transform: uppercase;
     font-size: 1.2rem;
+}
+
+@media (max-width:500px) {
+
+    .shop_first-section {
+        flex-direction: column;
+        gap: 2rem;
+        height: 50vh;
+    }
+
+    .shop_first-section_para-container {
+        margin: 0;
+        width: 100%;
+    }
+
+
+    .shop_second-section_product-container {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* autofills the number of columns that could be down with a minimum value of 200px or 1fr whichever one can be fit in the size of the screen*/
+        gap: 2rem;
+    }
+
+
+}
+
+
+@media (max-width: 1000px){
+    .shop_second-section_quote {
+        display: none;
+    }
 }
 
 
