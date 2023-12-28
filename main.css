@@ -1279,7 +1279,7 @@ footer {
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
-  background-color: red;
+  /* background-color: red; */
   gap: 1.5rem;
 }
 
@@ -1329,7 +1329,7 @@ footer {
   height: 100%;
   margin-top: 20rem;
   font-family: var(--secondary-font-family);
-  background-color: blueviolet;
+  /* background-color: blueviolet; */
   font-size: 1.6rem;
 }
 
@@ -1343,7 +1343,7 @@ footer {
 /*------------------------shop section products styling starts here-------------*/
 
 .shop_second-section {
-  background-color: purple;
+  /* background-color: purple; */
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
@@ -1358,7 +1358,7 @@ footer {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
-  background-color: brown;
+  /* background-color: brown; */
 }
 
 .shop_second-section_featured-product_product {
@@ -1369,7 +1369,7 @@ footer {
   align-items: center;
   width: 100%;
   height: 100%;
-  background-color: black;
+  /* background-color: black; */
   gap: 3rem;
 }
 
@@ -1386,7 +1386,7 @@ footer {
 }
 
 .featured_product_info-container {
-  background-color: beige;
+  /* background-color: beige; */
   width: 100%;
   display: flex;
   align-items: center;
@@ -1411,7 +1411,7 @@ footer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  background-color: brown;
+  /* background-color: brown; */
 }
 
 .shop_second-section_product {
@@ -1422,12 +1422,12 @@ footer {
   align-items: center;
   width: 100%;
   height: 100%;
-  background-color: black;
+  /* background-color: black; */
   gap: 3rem;
 }
 
 .shop_second-section_quote {
-  background-color: beige;
+  /* background-color: beige; */
   width: 100%;
   height: 100%;
   display: flex;
@@ -1458,7 +1458,7 @@ footer {
 }
 
 .product_info-container {
-  background-color: beige;
+  /* background-color: beige; */
   width: 100%;
   display: flex;
   align-items: center;
