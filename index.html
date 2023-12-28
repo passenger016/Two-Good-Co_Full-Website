@@ -1,222 +1,288 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css" /> -->
     <link rel="stylesheet" href="main.css" />
-</head>
+  </head>
 
-<body>
+  <body>
     <!--Html strcture common for all pages starts here-->
     <div class="pre-loader-container">
-        <div class="pre-loader_logo-icon-container">
-            <img src="./images/logo_icon.svg" alt="" class="pre-loader_logo-icon">
-        </div>
-        <!-- <div class="progress-bar-container">
+      <div class="pre-loader_logo-icon-container">
+        <img src="./images/logo_icon.svg" alt="" class="pre-loader_logo-icon" />
+      </div>
+      <!-- <div class="progress-bar-container">
             <div class="progress"></div>
         </div> -->
     </div>
     <div class="cursor"></div>
     <div class="main">
-        <nav class="primary-navbar">
-            <a class="primary-navbar_link" href="./pages/shop.html">Shop</a>
-            <a class="primary-navbar_link" href="#">catering</a>
-            <a class="primary-navbar_link" href="#" onclick="openDonateCard()">donate</a>
-        </nav>
-        <nav class="secondary-navbar">
-            <i data-feather="menu" class="menu-btn" style="stroke-width: 1; width: 2rem;"></i>
-            <i data-feather="shopping-cart" class="cart-btn" style="stroke-width: 1; width: 2rem;"></i>
-        </nav>
-        <div class="logo-container" onclick="redirectToPage()">
-            <span class="logo">two<br>good<br>co.</span>
-            <span class="logo_icon"><img class="logo_icon-image" src="/images/logo_icon.svg" alt=""></span>
-        </div>
+      <nav class="primary-navbar">
+        <a class="primary-navbar_link" href="./pages/shop.html">Shop</a>
+        <a class="primary-navbar_link" href="#">catering</a>
+        <a class="primary-navbar_link" href="#" onclick="openDonateCard()"
+          >donate</a
+        >
+      </nav>
+      <nav class="secondary-navbar">
+        <i
+          data-feather="menu"
+          class="menu-btn"
+          style="stroke-width: 1; width: 2rem"
+        ></i>
+        <i
+          data-feather="shopping-cart"
+          class="cart-btn"
+          style="stroke-width: 1; width: 2rem"
+        ></i>
+      </nav>
+      <div class="logo-container">
+        <span class="logo">two<br />good<br />co.</span>
+        <span class="logo_icon"
+          ><img class="logo_icon-image" src="/images/logo_icon.svg" alt=""
+        /></span>
+      </div>
 
-
-        <div class="secondary-navbar-expanded">
-            <div class="secondary-navbar-expanded-content">
-                <div class="secondary-navbar_primary-list-container">
-                    <ul class="secondary-navbar_primary-list">
-                        <li class="secondary-navbar_primary-list_item">
-                            <div class="primary-list_mask"><a class="secondary-navbar_primary-list_item_text"
-                                    href="./pages/shop.html">shop</a></div>
-                        </li>
-                        <li class="secondary-navbar_primary-list_item">
-                            <div class="primary-list_mask"><a class="secondary-navbar_primary-list_item_text"
-                                    href="">catering</a></div>
-                        </li>
-                        <li class="secondary-navbar_primary-list_item">
-                            <div class="primary-list_mask"><a class="secondary-navbar_primary-list_item_text"
-                                    href="">impact</a></div>
-                        </li>
-                        <li class="secondary-navbar_primary-list_item">
-                            <div class="primary-list_mask"><a class="secondary-navbar_primary-list_item_text"
-                                    href="">stories</a></div>
-                        </li>
-                        <li class="secondary-navbar_primary-list_item">
-                            <div class="primary-list_mask"><a class="secondary-navbar_primary-list_item_text"
-                                    href="">about</a></div>
-                        </li>
-                        <li class="secondary-navbar_primary-list_item">
-                            <div class="primary-list_mask"><a class="secondary-navbar_primary-list_item_text"
-                                    href="">contact</a></div>
-                        </li>
-                        <li class="secondary-navbar_primary-list_item">
-                            <div class="primary-list_mask"><a class="secondary-navbar_primary-list_item_text"
-                                    href="">donate</a></div>
-                        </li>
-                        <li class="secondary-navbar_primary-list_item">
-                            <div class="primary-list_mask"><a class="secondary-navbar_primary-list_item_text"
-                                    href="">sign in</a></div>
-                        </li>
-                    </ul>
+      <div class="secondary-navbar-expanded">
+        <div class="secondary-navbar-expanded-content">
+          <div class="secondary-navbar_primary-list-container">
+            <ul class="secondary-navbar_primary-list">
+              <li class="secondary-navbar_primary-list_item">
+                <div class="primary-list_mask">
+                  <a
+                    class="secondary-navbar_primary-list_item_text"
+                    href="./pages/shop.html"
+                    >shop</a
+                  >
                 </div>
-                <div class="secondary-navbar_donate-container hidden">
-                    <div class="secondary-navbar_donate-container_top-container">
-                        <button class="back-to-menu-btn">
-                            back to menu
-                        </button>
-                        <h1 class="secondary-navbar_donate_heading ">THANK YOU FOR DONATING TO THE TWO GOOD FOUNDATION.
-                            YOU ARE
-                            HELPING TO CHANGE THE COURSE OF A WOMAN'S LIFE FOR GOOD.</h1>
-                    </div>
-
-                    <div class="secondary-navbar_donate-container_bottom-container">
-
-                        <div class="donation-frequency-container">
-                            <button class="donation-frequency_btn clicked">
-                                One-Time
-                            </button>
-                            <button class="donation-frequency_btn">
-                                Weekly
-                            </button>
-                            <button class="donation-frequency_btn">
-                                Montly
-                            </button>
-
-                        </div>
-
-                        <div class="amount-btn-container">
-                            <button class="amount-btn">$500</button>
-                            <button class="amount-btn">$500</button>
-                            <button class="amount-btn">$500</button>
-                            <button class="amount-btn">$500</button>
-                            <button class="amount-btn">$500</button>
-                            <button class="amount-btn">$500</button>
-                            <button class="amount-btn">$500</button>
-                        </div>
-
-                    </div>
-
-
-
+              </li>
+              <li class="secondary-navbar_primary-list_item">
+                <div class="primary-list_mask">
+                  <a class="secondary-navbar_primary-list_item_text" href=""
+                    >catering</a
+                  >
                 </div>
-                <div class="secondary-navbar_secondary-list-container">
-                    <ul class="secondary-navbar_secondary-list">
-                        <li class="secondary-navbar_secondary-list_item">
-                            <div class="secondary-list_mask"><a class="secondary-navbar_secondary-list_item_text"
-                                    href="">facebook</a></div>
-                        </li>
-                        <li class="secondary-navbar_secondary-list_item">
-                            <div class="secondary-list_mask"><a class="secondary-navbar_secondary-list_item_text"
-                                    href="">instagram</a></div>
-                        </li>
-                        <li class="secondary-navbar_secondary-list_item">
-                            <div class="secondary-list_mask"><a class="secondary-navbar_secondary-list_item_text"
-                                    href="">twitter</a></div>
-                        </li>
-                        <li class="secondary-navbar_secondary-list_item">
-                            <div class="secondary-list_mask"><a class="secondary-navbar_secondary-list_item_text"
-                                    href="">linkedin</a></div>
-                        </li>
-                        <li class="secondary-navbar_secondary-list_item">
-                            <div class="secondary-list_mask"><a class="secondary-navbar_secondary-list_item_text"
-                                    href="">youtTube</a></div>
-                        </li>
-                    </ul>
-                    <ul class="secondary-navbar_secondary-list">
-                        <li class="secondary-navbar_secondary-list_item">
-                            <div class="secondary-list_mask"><a class="secondary-navbar_secondary-list_item_text2"
-                                    href="">good things FAQs</a></div>
-                        </li>
-                        <li class="secondary-navbar_secondary-list_item">
-                            <div class="secondary-list_mask"><a class="secondary-navbar_secondary-list_item_text2"
-                                    href="">good food FAQs</a></div>
-                        </li>
-                        <li class="secondary-navbar_secondary-list_item">
-                            <div class="secondary-list_mask"><a class="secondary-navbar_secondary-list_item_text2"
-                                    href="">good places</a></div>
-                        </li>
-                        <li class="secondary-navbar_secondary-list_item">
-                            <div class="secondary-list_mask"><a class="secondary-navbar_secondary-list_item_text2"
-                                    href="">pathways</a></div>
-                        </li>
-                        <li class="secondary-navbar_secondary-list_item">
-                            <div class="secondary-list_mask"><a class="secondary-navbar_secondary-list_item_text2"
-                                    href="">careers</a></div>
-                        </li>
-                    </ul>
+              </li>
+              <li class="secondary-navbar_primary-list_item">
+                <div class="primary-list_mask">
+                  <a class="secondary-navbar_primary-list_item_text" href=""
+                    >impact</a
+                  >
                 </div>
+              </li>
+              <li class="secondary-navbar_primary-list_item">
+                <div class="primary-list_mask">
+                  <a class="secondary-navbar_primary-list_item_text" href=""
+                    >stories</a
+                  >
+                </div>
+              </li>
+              <li class="secondary-navbar_primary-list_item">
+                <div class="primary-list_mask">
+                  <a class="secondary-navbar_primary-list_item_text" href=""
+                    >about</a
+                  >
+                </div>
+              </li>
+              <li class="secondary-navbar_primary-list_item">
+                <div class="primary-list_mask">
+                  <a class="secondary-navbar_primary-list_item_text" href=""
+                    >contact</a
+                  >
+                </div>
+              </li>
+              <li class="secondary-navbar_primary-list_item">
+                <div class="primary-list_mask">
+                  <a class="secondary-navbar_primary-list_item_text" href=""
+                    >donate</a
+                  >
+                </div>
+              </li>
+              <li class="secondary-navbar_primary-list_item">
+                <div class="primary-list_mask">
+                  <a class="secondary-navbar_primary-list_item_text" href=""
+                    >sign in</a
+                  >
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="secondary-navbar_donate-container hidden">
+            <div class="secondary-navbar_donate-container_top-container">
+              <button class="back-to-menu-btn">back to menu</button>
+              <h1 class="secondary-navbar_donate_heading">
+                THANK YOU FOR DONATING TO THE TWO GOOD FOUNDATION. YOU ARE
+                HELPING TO CHANGE THE COURSE OF A WOMAN'S LIFE FOR GOOD.
+              </h1>
             </div>
-        </div>
 
+            <div class="secondary-navbar_donate-container_bottom-container">
+              <div class="donation-frequency-container">
+                <button class="donation-frequency_btn clicked">One-Time</button>
+                <button class="donation-frequency_btn">Weekly</button>
+                <button class="donation-frequency_btn">Montly</button>
+              </div>
 
-        <div class="cart-expanded">
-            <div class="cart-expanded-content">
-                <div class="card-expanded-content_top-container">
-                    <h1 class="card-expanded-content_heading">
-                        Your cart is empty
-                    </h1>
-                    <a href="/pages/shop.html">
-                        <button class="primary-btn">
-                            See all good things
-                        </button></a>
-                </div>
-                <div class="card-expanded-content_bottom-container">
-                    <div class="scroller card-expanded-content_bottom-container_message-container">
-                        <ul class="scroller-content card-expanded-content_bottom-container_message">
-                            <li>cart</li>
-                            <!--Setting aria-hidden to true makes sure that the screen readers only read one cart-->
-                            <li aria-hidden="true">cart</li>
-                            <li aria-hidden="true">cart</li>
-                            <li aria-hidden="true">cart</li>
-                            <li aria-hidden="true">cart</li>
-                            <li aria-hidden="true">cart</li>
-                        </ul>
-                    </div>
-                    <div class="scroller card-expanded-content_bottom-container_message-container"
-                        data-direction="right">
-                        <ul class="scroller-content card-expanded-content_bottom-container_message">
-                            <li>empty</li>
-                            <!--Setting aria-hidden to true makes sure that the screen readers only read one cart-->
-                            <li aria-hidden="true">empty</li>
-                            <li aria-hidden="true">empty</li>
-                            <li aria-hidden="true">empty</li>
-                            <li aria-hidden="true">empty</li>
-                            <li aria-hidden="true">empty</li>
-                        </ul>
-                    </div>
-                </div>
+              <div class="amount-btn-container">
+                <button class="amount-btn">$500</button>
+                <button class="amount-btn">$500</button>
+                <button class="amount-btn">$500</button>
+                <button class="amount-btn">$500</button>
+                <button class="amount-btn">$500</button>
+                <button class="amount-btn">$500</button>
+                <button class="amount-btn">$500</button>
+              </div>
             </div>
-        </div>
-
-
-        <div class="cart-item-expanded">
-            <div class="cart-item-expanded_inner-container">
-                <div class="cart-item-expanded_top-container">
-                    <span class="cart-item-expanded_top-container_text" style="width: 20%;">
-                        cart
-                    </span>
-                    <span class="cart-item-expanded_top-container_text"
-                        style="width: 8%; display: flex; align-items: center; justify-content: center;">
-                        quantity
-                    </span>
+          </div>
+          <div class="secondary-navbar_secondary-list-container">
+            <ul class="secondary-navbar_secondary-list">
+              <li class="secondary-navbar_secondary-list_item">
+                <div class="secondary-list_mask">
+                  <a class="secondary-navbar_secondary-list_item_text" href=""
+                    >facebook</a
+                  >
                 </div>
-                <ul class="cart-item-expanded_item-list">
-                    <!-- <li class="cart-item-expanded_item">
+              </li>
+              <li class="secondary-navbar_secondary-list_item">
+                <div class="secondary-list_mask">
+                  <a class="secondary-navbar_secondary-list_item_text" href=""
+                    >instagram</a
+                  >
+                </div>
+              </li>
+              <li class="secondary-navbar_secondary-list_item">
+                <div class="secondary-list_mask">
+                  <a class="secondary-navbar_secondary-list_item_text" href=""
+                    >twitter</a
+                  >
+                </div>
+              </li>
+              <li class="secondary-navbar_secondary-list_item">
+                <div class="secondary-list_mask">
+                  <a class="secondary-navbar_secondary-list_item_text" href=""
+                    >linkedin</a
+                  >
+                </div>
+              </li>
+              <li class="secondary-navbar_secondary-list_item">
+                <div class="secondary-list_mask">
+                  <a class="secondary-navbar_secondary-list_item_text" href=""
+                    >youtTube</a
+                  >
+                </div>
+              </li>
+            </ul>
+            <ul class="secondary-navbar_secondary-list">
+              <li class="secondary-navbar_secondary-list_item">
+                <div class="secondary-list_mask">
+                  <a class="secondary-navbar_secondary-list_item_text2" href=""
+                    >good things FAQs</a
+                  >
+                </div>
+              </li>
+              <li class="secondary-navbar_secondary-list_item">
+                <div class="secondary-list_mask">
+                  <a class="secondary-navbar_secondary-list_item_text2" href=""
+                    >good food FAQs</a
+                  >
+                </div>
+              </li>
+              <li class="secondary-navbar_secondary-list_item">
+                <div class="secondary-list_mask">
+                  <a class="secondary-navbar_secondary-list_item_text2" href=""
+                    >good places</a
+                  >
+                </div>
+              </li>
+              <li class="secondary-navbar_secondary-list_item">
+                <div class="secondary-list_mask">
+                  <a class="secondary-navbar_secondary-list_item_text2" href=""
+                    >pathways</a
+                  >
+                </div>
+              </li>
+              <li class="secondary-navbar_secondary-list_item">
+                <div class="secondary-list_mask">
+                  <a class="secondary-navbar_secondary-list_item_text2" href=""
+                    >careers</a
+                  >
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="cart-expanded">
+        <div class="cart-expanded-content">
+          <div class="card-expanded-content_top-container">
+            <h1 class="card-expanded-content_heading">Your cart is empty</h1>
+            <a href="/pages/shop.html">
+              <button class="primary-btn">See all good things</button></a
+            >
+          </div>
+          <div class="card-expanded-content_bottom-container">
+            <div
+              class="scroller card-expanded-content_bottom-container_message-container"
+            >
+              <ul
+                class="scroller-content card-expanded-content_bottom-container_message"
+              >
+                <li>cart</li>
+                <!--Setting aria-hidden to true makes sure that the screen readers only read one cart-->
+                <li aria-hidden="true">cart</li>
+                <li aria-hidden="true">cart</li>
+                <li aria-hidden="true">cart</li>
+                <li aria-hidden="true">cart</li>
+                <li aria-hidden="true">cart</li>
+              </ul>
+            </div>
+            <div
+              class="scroller card-expanded-content_bottom-container_message-container"
+              data-direction="right"
+            >
+              <ul
+                class="scroller-content card-expanded-content_bottom-container_message"
+              >
+                <li>empty</li>
+                <!--Setting aria-hidden to true makes sure that the screen readers only read one cart-->
+                <li aria-hidden="true">empty</li>
+                <li aria-hidden="true">empty</li>
+                <li aria-hidden="true">empty</li>
+                <li aria-hidden="true">empty</li>
+                <li aria-hidden="true">empty</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cart-item-expanded">
+        <div class="cart-item-expanded_inner-container">
+          <div class="cart-item-expanded_top-container">
+            <span
+              class="cart-item-expanded_top-container_text"
+              style="width: 20%"
+            >
+              cart
+            </span>
+            <span
+              class="cart-item-expanded_top-container_text"
+              style="
+                width: 8%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              "
+            >
+              quantity
+            </span>
+          </div>
+          <ul class="cart-item-expanded_item-list">
+            <!-- <li class="cart-item-expanded_item">
                         <h2 class="cart-item-expanded_item_name">change the course cookbook</h2>
                         <span class="cart-item-expanded_item_quantity-container">
                             <button class="cart-item-expanded_item_quantity_sub">-</button>
@@ -248,227 +314,388 @@
                         </div>
 
                     </li> -->
-                </ul>
+          </ul>
 
-                <div class="cart-item-expanded_details-container">
-                    <div class="cart-item-expanded_details-container_top-container">
-                        <div class="cart-item-expanded_details-container_left">
-                            <a href="#" class="cart-item-expanded_details-container_left_link" style="color: #6d6d6d;
-                            text-transform: uppercase;
-                            font-weight: bold;">for an extra $5, you can add a personalised gift card</a>
-                        </div>
-                        <div class="cart-item-expanded_details-container_right">
-                            <div class="cart-item-expanded_details-container_right_left-container"
-                                style="display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start; width: 100%; height: 100%;">
-                                <span class="cart-item-expanded_details-container_right_left-container_text"
-                                    style="color: #6d6d6d; text-transform: uppercase;">
-                                    delivery
-                                </span>
-                                <span class="cart-item-expanded_details-container_right_left-container_text"
-                                    style="color: #6d6d6d; text-transform: uppercase;">
-                                    subtotal
-                                </span>
-                            </div>
-                            <div class="cart-item-expanded_details-container_right_right-container"
-                                style="display: flex; flex-direction: column; justify-content: space-between; align-items: flex-end; width: 100%; height: 100%;">
-                                <span class="cart-item-expanded_details-container_right_right-container_text"
-                                    style="color: white; text-transform: uppercase;text-align: right;">
-                                    shipping calculated at checkout
-                                </span>
-                                <span class="cart-item-expanded_details-container_right_right-container_text final-amount"
-                                    style="color: white; text-transform: uppercase;text-align: right;">
-                                    $140
-                                </span>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="cart-item-expanded_details-container_bottom-container">
-                        <button class="primary-btn" style="width: 40%;">checkout</button>
-                    </div>
-
+          <div class="cart-item-expanded_details-container">
+            <div class="cart-item-expanded_details-container_top-container">
+              <div class="cart-item-expanded_details-container_left">
+                <a
+                  href="#"
+                  class="cart-item-expanded_details-container_left_link"
+                  style="
+                    color: #6d6d6d;
+                    text-transform: uppercase;
+                    font-weight: bold;
+                  "
+                  >for an extra $5, you can add a personalised gift card</a
+                >
+              </div>
+              <div class="cart-item-expanded_details-container_right">
+                <div
+                  class="cart-item-expanded_details-container_right_left-container"
+                  style="
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    align-items: flex-start;
+                    width: 100%;
+                    height: 100%;
+                  "
+                >
+                  <span
+                    class="cart-item-expanded_details-container_right_left-container_text"
+                    style="color: #6d6d6d; text-transform: uppercase"
+                  >
+                    delivery
+                  </span>
+                  <span
+                    class="cart-item-expanded_details-container_right_left-container_text"
+                    style="color: #6d6d6d; text-transform: uppercase"
+                  >
+                    subtotal
+                  </span>
                 </div>
+                <div
+                  class="cart-item-expanded_details-container_right_right-container"
+                  style="
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    align-items: flex-end;
+                    width: 100%;
+                    height: 100%;
+                  "
+                >
+                  <span
+                    class="cart-item-expanded_details-container_right_right-container_text"
+                    style="
+                      color: white;
+                      text-transform: uppercase;
+                      text-align: right;
+                    "
+                  >
+                    shipping calculated at checkout
+                  </span>
+                  <span
+                    class="cart-item-expanded_details-container_right_right-container_text final-amount"
+                    style="
+                      color: white;
+                      text-transform: uppercase;
+                      text-align: right;
+                    "
+                  >
+                    $140
+                  </span>
+                </div>
+              </div>
             </div>
-
+            <div class="cart-item-expanded_details-container_bottom-container">
+              <button class="primary-btn" style="width: 40%">checkout</button>
+            </div>
+          </div>
         </div>
+      </div>
 
-        <!--Html strcture common for all pages ends here-->
+      <!--Html strcture common for all pages ends here-->
 
-
-
-
-
-
-
-        <section class="first-section">
-            <div class="first-section_heading-container">
-                <div class="first-section_heading-interior-container-first">
-                    <h1 class="first-section_heading">change</h1>
-                </div>
-                <div class="first-section_heading-interior-container-second">
-                    <h1 class="first-section_heading">the</h1>
-                    <h1 class="first-section_heading">course</h1>
-                </div>
-            </div>
-            <div class="first-section_promotion-container interactable product--card" data-type="product" id="0">
-
-                <img src="/images/iloveimg-compressed/product image 0.png" alt=""
-                    class="first-section_promotion-container_img">
-                <!-- <span class="circular-text">the-course-of-a-women's-life-change-</span> -->
-            </div>
-        </section>
-        <section class="second-section">
-            <div class="second-section_title-container">
-                <div class="second-section_title">buy good</div>
-                <div class="second-section_title">do good</div>
-            </div>
-            <div class="second-section_category-container">
-
-                <div style="background-color: aqua;" class="second-section_category-outer-container animate--category">
-
-                    <div class="second-section_category-image-container" id="category_image1" data-scroll
-                        data-scroll-speed="1.1">
-
-                        <!-- <img data-scroll data-scroll-speed="1.1" id="second-section_image1"
+      <section class="first-section">
+        <div class="first-section_heading-container">
+          <div class="first-section_heading-interior-container-first">
+            <h1 class="first-section_heading">change</h1>
+          </div>
+          <div class="first-section_heading-interior-container-second">
+            <h1 class="first-section_heading">the</h1>
+            <h1 class="first-section_heading">course</h1>
+          </div>
+        </div>
+        <div
+          class="first-section_promotion-container interactable product--card"
+          data-type="product"
+          id="0"
+        >
+          <img
+            src="/images/iloveimg-compressed/product image 0.png"
+            alt=""
+            class="first-section_promotion-container_img"
+          />
+          <!-- <span class="circular-text">the-course-of-a-women's-life-change-</span> -->
+        </div>
+      </section>
+      <section class="second-section">
+        <div class="second-section_title-container">
+          <div class="second-section_title">buy good</div>
+          <div class="second-section_title">do good</div>
+        </div>
+        <div class="second-section_category-container">
+          <div
+            style="background-color: aqua"
+            class="second-section_category-outer-container animate--category"
+          >
+            <div
+              class="second-section_category-image-container"
+              id="category_image1"
+              data-scroll
+              data-scroll-speed="1.1"
+            >
+              <!-- <img data-scroll data-scroll-speed="1.1" id="second-section_image1"
                             class="second-section_category-image"
                             src="/images/bc3f529e3f10086db91822f615caf549a260362d-1500x2250.jpeg" alt=""> -->
+            </div>
+            <div
+              data-scroll
+              data-scroll-speed="-4"
+              class="second-section_category-box"
+            >
+              <span class="second-section_category-box_first-text">shop</span>
+              <span class="second-section_category-box_second-text"
+                >gifts for good</span
+              >
+            </div>
+          </div>
 
-                    </div>
-                    <div data-scroll data-scroll-speed="-4" class="second-section_category-box">
-
-                        <span class="second-section_category-box_first-text">shop</span>
-                        <span class="second-section_category-box_second-text">gifts for good</span>
-
-                    </div>
-
-                </div>
-
-                <div style="background-color: aqua;" class="second-section_category-outer-container animate--category">
-
-                    <div class="second-section_category-image-container" id="category_image2" data-scroll
-                        data-scroll-speed="1.1">
-                        <!-- <img data-scroll data-scroll-speed="1.1" id="second-section_image2"
+          <div
+            style="background-color: aqua"
+            class="second-section_category-outer-container animate--category"
+          >
+            <div
+              class="second-section_category-image-container"
+              id="category_image2"
+              data-scroll
+              data-scroll-speed="1.1"
+            >
+              <!-- <img data-scroll data-scroll-speed="1.1" id="second-section_image2"
                             class="second-section_category-image"
                             src="images/d3151106849ff2494d66916cf554c68a0603444d-902x1500.png" alt=""> -->
+            </div>
 
-                    </div>
+            <div
+              data-scroll
+              data-scroll-speed="-4"
+              class="second-section_category-box"
+            >
+              <span class="second-section_category-box_first-text">shop</span>
+              <span class="second-section_category-box_second-text"
+                >gifts for good</span
+              >
+            </div>
+          </div>
 
-                    <div data-scroll data-scroll-speed="-4" class="second-section_category-box">
-                        <span class="second-section_category-box_first-text">shop</span>
-                        <span class="second-section_category-box_second-text">gifts for good</span>
-                    </div>
-
-                </div>
-
-                <div style="background-color: aqua;" class="second-section_category-outer-container animate--category">
-
-                    <div class="second-section_category-image-container" id="category_image3" data-scroll
-                        data-scroll-speed="1.1">
-                        <!-- <img data-scroll data-scroll-speed="1.1" id="second-section_image3"
+          <div
+            style="background-color: aqua"
+            class="second-section_category-outer-container animate--category"
+          >
+            <div
+              class="second-section_category-image-container"
+              id="category_image3"
+              data-scroll
+              data-scroll-speed="1.1"
+            >
+              <!-- <img data-scroll data-scroll-speed="1.1" id="second-section_image3"
                             class="second-section_category-image" src="images/3rd.jpeg" alt=""> -->
-
-                    </div>
-
-                    <div data-scroll data-scroll-speed="-4" class="second-section_category-box">
-                        <span class="second-section_category-box_first-text">shop</span>
-                        <span class="second-section_category-box_second-text">gifts for good</span>
-                    </div>
-
-                </div>
             </div>
-        </section>
-        <section class="third-section">
-            <div class="third-section_top-container">
-                <div class="third-section_top-container_first">
-                    WE BELIEVE IN PEOPLE , UNTIL THEY BELIEVE IN THEMSELVES AGAIN.
-                </div>
-                <div class="third-section_top-container_second">
-                    <p>
-                        Everything we do is designed to rebuild self worth and independence, in order to break free from
-                        the
-                        cycle of disadvantage.</p>
-                    <p>
-                        With every purchase you make with us, you're helping to change the course of someone's life;
-                        you're
-                        walking alongside vulnerable women as they find their way home again.</p>
-                </div>
-            </div>
-            <div class="third-section_bottom-container">
-                <div class="product product--card animate--card" id="1">
-                    <div class="product_image-container">
-                        <img src="images/iloveimg-compressed/product image 1.png" alt="this is a product image"
-                            class="product_image lazy-load" loading="lazy" data-type="1">
-                    </div>
-                    <div class="product_container">
-                        <h3 class="product_title">change the course cook kit</h3>
-                        <span class="product_price">$95</span>
-                    </div>
-                </div>
-                <div class="product product--card animate--card" id="2">
-                    <div class="product_image-container">
-                        <img src="images/iloveimg-compressed/product image 2.png" alt="this is a product image"
-                            class="product_image lazy-load" loading="lazy" data-type="2">
-                    </div>
-                    <div class="product_container">
-                        <h3 class="product_title">the inside shop good feels cracker set</h3>
-                        <span class="product_price">$75</span>
-                    </div>
-                </div>
-                <div class="product product--card animate--card" id="3">
-                    <div class="product_image-container">
-                        <img src="images/iloveimg-compressed/product image 3.png" alt="this is a product image"
-                            class="product_image lazy-load" loading="lazy" data-type="3">
-                    </div>
-                    <div class="product_container">
-                        <h3 class="product_title">hunter x two good limited edition candle</h3>
-                        <span class="product_price">$75</span>
-                    </div>
-                </div>
-                <div class="product product--card animate--card" id="4">
-                    <div class="product_image-container">
-                        <img src="images/iloveimg-compressed/product image 4.png" alt="this is a product image"
-                            class="product_image lazy-load" loading="lazy" data-type="4">
-                    </div>
-                    <div class="product_container">
-                        <h3 class="product_title">the good old glaze kit</h3>
-                        <span class="product_price">$75</span>
-                    </div>
-                </div>
-                <div class="product product--card animate--card" id="10">
-                    <div class="product_image-container">
-                        <img src="images/iloveimg-compressed/product image 10.png" alt="this is a product image"
-                            class="product_image lazy-load" loading="lazy" data-type="5">
-                    </div>
-                    <div class="product_container">
-                        <h3 class="product_title">the good old glaze kit</h3>
-                        <span class="product_price">$75</span>
-                    </div>
-                </div>
-                <div class="product product--card animate--card" id="8">
-                    <div class="product_image-container">
-                        <img src="images/iloveimg-compressed/product image 8.png" alt="this is a product image"
-                            class="product_image lazy-load" loading="lazy" data-type="6">
-                    </div>
-                    <div class="product_container">
-                        <h3 class="product_title">the good old glaze kit</h3>
-                        <span class="product_price">$75</span>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <footer>
-            <div class="footer_email-container">
-                <input type="text" placeholder="enter your email address for good" class="footer_email-input">
-
+            <div
+              data-scroll
+              data-scroll-speed="-4"
+              class="second-section_category-box"
+            >
+              <span class="second-section_category-box_first-text">shop</span>
+              <span class="second-section_category-box_second-text"
+                >gifts for good</span
+              >
             </div>
-        </footer>
+          </div>
+        </div>
+      </section>
+      <section class="third-section">
+        <div class="third-section_top-container">
+          <div class="third-section_top-container_first">
+            WE BELIEVE IN PEOPLE , UNTIL THEY BELIEVE IN THEMSELVES AGAIN.
+          </div>
+          <div class="third-section_top-container_second">
+            <p>
+              Everything we do is designed to rebuild self worth and
+              independence, in order to break free from the cycle of
+              disadvantage.
+            </p>
+            <p>
+              With every purchase you make with us, you're helping to change the
+              course of someone's life; you're walking alongside vulnerable
+              women as they find their way home again.
+            </p>
+          </div>
+        </div>
+        <div class="third-section_bottom-container">
+          <div class="product product--card animate--card" id="1">
+            <div class="product_image-container">
+              <img
+                src="images/iloveimg-compressed/product image 1.png"
+                alt="this is a product image"
+                class="product_image lazy-load"
+                loading="lazy"
+                data-type="1"
+              />
+            </div>
+            <div class="product_container">
+              <h3 class="product_title">change the course cook kit</h3>
+              <span class="product_price">$95</span>
+            </div>
+          </div>
+          <div class="product product--card animate--card" id="2">
+            <div class="product_image-container">
+              <img
+                src="images/iloveimg-compressed/product image 2.png"
+                alt="this is a product image"
+                class="product_image lazy-load"
+                loading="lazy"
+                data-type="2"
+              />
+            </div>
+            <div class="product_container">
+              <h3 class="product_title">
+                the inside shop good feels cracker set
+              </h3>
+              <span class="product_price">$75</span>
+            </div>
+          </div>
+          <div class="product product--card animate--card" id="3">
+            <div class="product_image-container">
+              <img
+                src="images/iloveimg-compressed/product image 3.png"
+                alt="this is a product image"
+                class="product_image lazy-load"
+                loading="lazy"
+                data-type="3"
+              />
+            </div>
+            <div class="product_container">
+              <h3 class="product_title">
+                hunter x two good limited edition candle
+              </h3>
+              <span class="product_price">$75</span>
+            </div>
+          </div>
+          <div class="product product--card animate--card" id="4">
+            <div class="product_image-container">
+              <img
+                src="images/iloveimg-compressed/product image 4.png"
+                alt="this is a product image"
+                class="product_image lazy-load"
+                loading="lazy"
+                data-type="4"
+              />
+            </div>
+            <div class="product_container">
+              <h3 class="product_title">the good old glaze kit</h3>
+              <span class="product_price">$75</span>
+            </div>
+          </div>
+          <div class="product product--card animate--card" id="10">
+            <div class="product_image-container">
+              <img
+                src="images/iloveimg-compressed/product image 10.png"
+                alt="this is a product image"
+                class="product_image lazy-load"
+                loading="lazy"
+                data-type="5"
+              />
+            </div>
+            <div class="product_container">
+              <h3 class="product_title">the good old glaze kit</h3>
+              <span class="product_price">$75</span>
+            </div>
+          </div>
+          <div class="product product--card animate--card" id="8">
+            <div class="product_image-container">
+              <img
+                src="images/iloveimg-compressed/product image 8.png"
+                alt="this is a product image"
+                class="product_image lazy-load"
+                loading="lazy"
+                data-type="6"
+              />
+            </div>
+            <div class="product_container">
+              <h3 class="product_title">the good old glaze kit</h3>
+              <span class="product_price">$75</span>
+            </div>
+          </div>
+        </div>
+      </section>
 
+      <footer>
+        <div class="footer_email-container">
+          <input
+            type="text"
+            placeholder="enter your email address for good"
+            class="footer_email-input"
+          />
+        </div>
+        <div class="footer_inner-container_top">
+          <div class="footer_right-container"  style="width: 20%;">
+            <div class="footer_right-container_text" >
+              <h5 style="text-transform: uppercase" class="footer_list-heading">CONNECT WITH US</h5>
+              <ul class="footer_list">
+                <li class="footer_list-item">
+                  <a href="" class="footer_list-item_link">facebook</a>
+                </li>
+                <li class="footer_list-item">
+                  <a href="" class="footer_list-item_link">instagram</a>
+                </li>
+                <li class="footer_list-item">
+                  <a href="" class="footer_list-item_link">twitter</a>
+                </li>
+                <li class="footer_list-item">
+                  <a href="" class="footer_list-item_link">linkedin</a>
+                </li>
+                <li class="footer_list-item">
+                  <a href="" class="footer_list-item_link">youtube</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer_logo-container" style="width: 60%;">
+            <img src="./images/logo_icon.svg" alt="" class="footer_logo" />
+          </div>
+          <div class="footer_left-container"  style="width: 20%;display:flex;justify-content:flex-end">
+            <div class="footer_left-container_text">
+              <h5 style="text-transform: uppercase" class="footer_list-heading">THE NITTY GRITTIES</h5>
+              <ul class="footer_list">
+                <li class="footer_list-item">
+                  <a href="" class="footer_list-item_link">good things FAQS</a>
+                </li>
+                <li class="footer_list-item">
+                  <a href="" class="footer_list-item_link">good food FAQS</a>
+                </li>
+                <li class="footer_list-item">
+                  <a href="" class="footer_list-item_link">good places</a>
+                </li>
+                <li class="footer_list-item">
+                  <a href="" class="footer_list-item_link">pathways</a>
+                </li>
+                <li class="footer_list-item">
+                  <a href="" class="footer_list-item_link">careers</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer_inner-container_bottom">
+          <p style="background-color: beige;">
+            We are proud and privileged to have our home on this land, and to be
+            able to continue the long tradition of community coming together
+            around food, begun thousands of years ago by First Nations peoples.
+            As we stand together on this unceded land, we acknowledge our First
+            Nations people, are the original custodians of this land, and we
+            recognise their deep connection to land, water, sky and community
+            which continues today. We pay our deep respects to community elders,
+            past, present and emerging, for they hold the memories, the
+            traditions, the culture and hopes of Aboriginal and Torres Strait
+            Islander peoples. Always was, always will be Aboriginal land.
+          </p>
+        </div>
+      </footer>
     </div>
-
-
-
-
 
     <!-- <script  src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -477,16 +704,12 @@
 
     <!-- Initialize Feather Icons -->
     <script>
-        feather.replace();
-        function redirectToPage() {
-            window.location.href = "http://localhost:5500/index.html";
-        }
+      feather.replace();
+      function redirectToPage() {
+        window.location.href = "http://localhost:5500/index.html";
+      }
     </script>
 
-
-
-
     <script src="main.js"></script>
-</body>
-
+  </body>
 </html>
