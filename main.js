@@ -182,12 +182,31 @@ window.addEventListener('load', function () {
     console.log(`document title is ${this.document.title}`)
     firstHeadingAnimation();
     promotionAnimation();
-
+    windowLoaded = true;
 
 });
 
-
-
+// Set a timeout to check if the window hasn't loaded after a certain time (e.g., 5 seconds)
+const timeoutDuration = 1500; // 1.5 seconds
+setTimeout(function () {
+    if (windowLoaded == false) {
+        console.log(`Window hasn't finished loading after ${timeoutDuration / 1000} seconds.`);
+        // Your additional actions or animations for the case when window loading takes too long
+        document.querySelector(".pre-loader_text").style.display = 'block';
+    }
+}, timeoutDuration);
+setTimeout(function () {
+    if (windowLoaded == false) {
+        console.log(`Window hasn't finished loading after ${2.5} seconds.`);
+        document.querySelector(".pre-loader_text").textContent = "it's taking longer than expected...please wait"
+    }
+}, 2500);
+setTimeout(function () {
+    if (windowLoaded == false) {
+        console.log(`Window hasn't finished loading after ${2.5} seconds.`);
+        document.querySelector(".pre-loader_text").textContent = "you might be on a slow network...try refreshing"
+    }
+}, 3000);
 
 
 
@@ -1171,7 +1190,7 @@ if (urlParams.get('id')) {
             delay: 0.5,
             duration: 1.5,
         });
-        gsap.from(".product_first-section_third-container",{
+        gsap.from(".product_first-section_third-container", {
             opacity: 0,
         });
     })

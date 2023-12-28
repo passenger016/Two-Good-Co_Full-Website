@@ -168,6 +168,14 @@ body {
   background-color: white;
 }
 
+.pre-loader_text{
+    color: white;
+    font-family: var(--secondary-font-family);
+    text-transform: uppercase;
+    display: none;
+    font-size: 1.2rem;
+}
+
 @keyframes progress {
   0% {
     width: 0;
