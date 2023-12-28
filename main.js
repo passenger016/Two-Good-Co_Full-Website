@@ -2,6 +2,7 @@ const cursor = document.querySelector(".cursor");
 const menuBtn = document.querySelector(".menu-btn");
 const secondaryNav = document.querySelector(".secondary-navbar");
 const logo = document.querySelector(".logo");
+const primaryNav = document.querySelector(".primary-navbar")
 const cartBtn = document.querySelector('.cart-btn');
 const cartCard = document.querySelector('.cart-expanded');
 const backToMenuBtn = document.querySelector('.back-to-menu-btn');
@@ -355,7 +356,7 @@ function openDonateCard() {
             document.querySelector('.secondary-navbar_donate-container').classList.remove('hidden')
 
             // if navis lready open it will hapen instantly
-           gsap.from('.secondary-navbar_donate-container', {
+            gsap.from('.secondary-navbar_donate-container', {
                 delay: 0,
                 opacity: 0,
                 y: 20,
@@ -1067,7 +1068,7 @@ if (urlParams.get('id')) {
     document.querySelector('.product--info2').textContent = findProduct.info2;
     document.querySelector('.extra--info').textContent = findProduct.extrainfo;
     document.querySelector('.product--bg-color').style.backgroundColor = findProduct.bgColor;
-
+    primaryNav.style.backgroundColor = findProduct.bgColor;
 
     const productColor = document.querySelectorAll('.product--color');
     productColor.forEach(product => {
@@ -1162,6 +1163,18 @@ if (urlParams.get('id')) {
 
 
 
+    window.addEventListener('DOMContentLoaded', () => {
+        // code for animating the product page contents
+        gsap.from(".product--thumbnail-image", {
+            opacity: 0,
+            y: 50,
+            delay: 0.5,
+            duration: 1.5,
+        });
+        gsap.from(".product_first-section_third-container",{
+            opacity: 0,
+        });
+    })
 
 
 
